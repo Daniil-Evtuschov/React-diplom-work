@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+  color: #5a5a5a;
+  background-color: rgb(5, 5, 12);
+}
+
+.container{
+  margin: auto;
+  padding: 0 80px;
+  padding-top: 40px;
+  display: flex;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

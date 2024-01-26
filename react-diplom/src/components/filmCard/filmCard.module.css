@@ -1,0 +1,44 @@
+.filmCardWrap{
+    cursor: pointer;
+}
+
+.filmCardWrapImg{
+    position: relative;
+    margin-bottom: 20px;
+
+}
+
+.filmCardVote{
+    position: absolute;
+    background-color: rgb(46, 192, 46);
+    top: 5%;
+    left: 5%;
+    color: #ffff;
+    border-radius: 4px;
+    overflow: hidden;
+    padding: 1px 5px;
+}
+
+.filmCardPoster{
+    width: 100%;
+    height: 100%;
+    
+    object-fit: contain;
+    object-position: center;
+
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.filmCardDescriptionWrap{
+    text-align: left;
+
+}
+
+.filmCardDescription{
+    margin-bottom: 5px;
+}
+
+.filmCardDescription:first-child{
+    color: #ffff;
+}

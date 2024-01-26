@@ -1,0 +1,38 @@
+.activeFilmCardWrap{
+    display: flex;
+}
+
+.activeFilmCardImg{
+    width: 60%;
+    height: 100%;
+
+    object-fit:cover;
+    object-position: left;
+}
+
+.activeFilmCardImgWrap{
+   width: 70%;
+   height: 100%;
+   display: flex;
+}
+
+.activeFilmCardTitle{
+    color: #ffff;
+    
+}
+
+.activeFilmCardYear{
+    color: #ffff;
+}
+
+.activeFilmCardGener{
+    color: #ffff;
+}
+
+.activeFilmCardContent{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    height: 40%;
+}
+
