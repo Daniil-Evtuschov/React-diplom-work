@@ -1,4 +1,5 @@
 import { filmsCardsProps } from "../../interfases";
+import Header from "../header/header";
 import  styleActiveFilmCard  from "./activeFilmCard.module.css";
 
 const ActiveFilmCard = ()=>{
@@ -13,6 +14,9 @@ const ActiveFilmCard = ()=>{
     }]
     return(
         <>
+        <div>
+        <div><Header/></div>
+        <div>
         {prototype.map(item=>
             <div className={styleActiveFilmCard.activeFilmCardWrap}>
 
@@ -31,6 +35,9 @@ const ActiveFilmCard = ()=>{
                 </div>
             </div>
         )}
+        </div>
+        </div>
+
         </>
     )
 }

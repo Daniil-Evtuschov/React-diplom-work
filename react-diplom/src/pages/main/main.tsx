@@ -1,5 +1,4 @@
 import MainContent from "../../components/mainContent/mainContent";
-import ActiveFilmCard from "../activeFilCard/activeFilmCard";
 import Header from "../header/header"
 import  MainStyle  from "./main.module.css";
 

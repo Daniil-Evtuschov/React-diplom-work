@@ -1,73 +1,40 @@
-import { filmsCardsProps } from "../../interfases"
+import { useNavigate } from "react-router-dom";
+import { filmsCardsInt, filmsCardsProps } from "../../interfases"
 import  styleFilmCard  from "./filmCard.module.css";
+import { useDispatch } from "react-redux";
 
-const FilmCard = ()=>{
-    const prototype:filmsCardsProps[] =[{
-        id:7,
-        votes: '7.6',
-        poster:'https://avatars.mds.yandex.net/get-kinopoisk-image/1773646/31e5705d-7135-4b6c-b886-5816762e581e/orig',
-        filmTitle:'default',
-        filmsGeners:' qwe342 ;23j41qhn 2134wasd',
-    },{
-        id:7,
-        votes: '7.6',
-        poster:'https://avatars.mds.yandex.net/get-kinopoisk-image/1773646/31e5705d-7135-4b6c-b886-5816762e581e/orig',
-        filmTitle:'default',
-        filmsGeners:' qwe342 ;23j41qhn 2134wasd',
-    },{
-        id:7,
-        votes: '7.6',
-        poster:'https://avatars.mds.yandex.net/get-kinopoisk-image/1773646/31e5705d-7135-4b6c-b886-5816762e581e/orig',
-        filmTitle:'default',
-        filmsGeners:' qwe342 ;23j41qhn 2134wasd',
-    },{
-        id:7,
-        votes: '7.6',
-        poster:'https://avatars.mds.yandex.net/get-kinopoisk-image/1773646/31e5705d-7135-4b6c-b886-5816762e581e/orig',
-        filmTitle:'default',
-        filmsGeners:' qwe342 ;23j41qhn 2134wasd',
-    },{
-        id:7,
-        votes: '7.6',
-        poster:'https://avatars.mds.yandex.net/get-kinopoisk-image/1773646/31e5705d-7135-4b6c-b886-5816762e581e/orig',
-        filmTitle:'default',
-        filmsGeners:' qwe342 ;23j41qhn 2134wasd',
-    },{
-        id:7,
-        votes: '7.6',
-        poster:'https://avatars.mds.yandex.net/get-kinopoisk-image/1773646/31e5705d-7135-4b6c-b886-5816762e581e/orig',
-        filmTitle:'default',
-        filmsGeners:' qwe342 ;23j41qhn 2134wasd',
-    },{
-        id:7,
-        votes: '7.6',
-        poster:'https://avatars.mds.yandex.net/get-kinopoisk-image/1773646/31e5705d-7135-4b6c-b886-5816762e581e/orig',
-        filmTitle:'default',
-        filmsGeners:' qwe342 ;23j41qhn 2134wasd',
-    },{
-        id:7,
-        votes: '7.6',
-        poster:'https://avatars.mds.yandex.net/get-kinopoisk-image/1773646/31e5705d-7135-4b6c-b886-5816762e581e/orig',
-        filmTitle:'default',
-        filmsGeners:' qwe342 ;23j41qhn 2134wasd',
-    },]
-    
+
+const FilmCard = (props:filmsCardsInt)=>{
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     return(
+        // <>
+        // <div onClick={()=>{navigate('/ActiveFilmCard')}} className={styleFilmCard.filmCardWrap} key={props.id}>
+        //     <div className={styleFilmCard.filmCardWrapImg}>
+        //         <span className={styleFilmCard.filmCardVote}>{props.votes}</span>
+        //         <img className={styleFilmCard.filmCardPoster}src={props.poster} alt="" />
+        //     </div>
+        //     <div className={styleFilmCard.filmCardDescriptionWrap}>
+        //         <div className={styleFilmCard.filmCardDescription}>{props.filmName}</div>
+        //         <div className={styleFilmCard.filmCardDescription}>{props.geners}</div>
+        //     </div>
+        // </div>
+        // </>
         <>
-        {prototype.map(item=>
-        <div className={styleFilmCard.filmCardWrap} key={item.id}>
-            <div className={styleFilmCard.filmCardWrapImg}>
-                <span className={styleFilmCard.filmCardVote}>{item.votes}</span>
-                <img className={styleFilmCard.filmCardPoster}src={item.poster} alt="" />
+            <div onClick={()=>{navigate('/ActiveFilmCard')}} className={styleFilmCard.filmCardWrap} key={props.imdbID}>
+                <div className={styleFilmCard.filmCardWrapImg}>
+                    <span className={styleFilmCard.filmCardVote}>{props.Type}</span>
+                    <img className={styleFilmCard.filmCardPoster}src={props.Poster} alt="" />
+                </div>
+                <div className={styleFilmCard.filmCardDescriptionWrap}>
+                    <div className={styleFilmCard.filmCardDescription}>{props.Title}</div>
+                    <div className={styleFilmCard.filmCardDescription}>{props.imdbID}</div>
+                </div>
             </div>
-            <div className={styleFilmCard.filmCardDescriptionWrap}>
-                <div className={styleFilmCard.filmCardDescription}>{item.filmTitle}</div>
-                <div className={styleFilmCard.filmCardDescription}>{item.filmsGeners}</div>
-            </div>
-        </div>
-        )}
         </>
-    )
+        
+    )   
 } 
 
 export default FilmCard
