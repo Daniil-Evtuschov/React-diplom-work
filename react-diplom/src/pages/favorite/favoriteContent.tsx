@@ -19,7 +19,7 @@ const FavoritFilmsContent =()=>{
             {/* {films.map((item)=><FilmCard id={item.id} votes={item.votes.imdb} filmser={item.filmser.url} description={item.description} geners={'dramma'} filmName={item.name} />)} */}
             
             {/* OMDb API */}
-            {films ? films.length && films.map((item:filmsCardsInt)=><FavoriteCards Year={item.Year} Poster={item.Poster} Title={item.Title} Type={item.Type} imdbID={item.imdbID} favorite={false}/>):null}
+            {films.map((item:filmsCardsInt)=><FavoriteCards Year={item.Year} Poster={item.Poster} Title={item.Title} Type={item.Type} imdbID={item.imdbID} favorite={false}/>)}
         </div>
     )
 }

@@ -5,14 +5,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { actvieFilmCard } from "../../store/actions/activeFilmCardAction";
 import setLocalStorageItem from "./localstorageActiveItme";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBookmark } from "@fortawesome/free-regular-svg-icons"
+import { faBookmark } from "@fortawesome/free-solid-svg-icons"
 import asideStyle from "../../pages/aside/aside.module.css";
 import addToFavorite from "./addToFavorite";
+import { useEffect, useState } from "react";
 
 const FilmCard = (props:filmsCardsInt)=>{
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
+    //activeCard
+    //favorite
+    const [card,setCard] = useState('favorite')    
     return(
         // <>
         // <div onClick={()=>{navigate('/ActiveFilmCard')}} className={styleFilmCard.filmCardWrap} key={props.id}>
@@ -31,7 +34,7 @@ const FilmCard = (props:filmsCardsInt)=>{
                 <div className={styleFilmCard.filmCardWrapImg}>
                     <span className={styleFilmCard.filmCardVote}>{'7,8'}</span>
                     <img className={styleFilmCard.filmCardPoster}src={props.Poster} alt="" />
-                    <span onClick={(event)=>{addToFavorite(props,event)}} className={styleFilmCard.favorite}><FontAwesomeIcon className={asideStyle.asideIcosn} icon={faBookmark} /></span>
+                    <span onClick={(event)=>{addToFavorite(props,event);setCard('activeCard')}} className={card}><FontAwesomeIcon className={asideStyle.asideIcosn} icon={faBookmark} /></span>
                 </div>
                 <div className={styleFilmCard.filmCardDescriptionWrap}>
                     <div className={styleFilmCard.filmCardDescription}>{props.Title}</div>

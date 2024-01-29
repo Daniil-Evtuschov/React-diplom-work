@@ -42,12 +42,3 @@
 .filmCardDescription:first-child{
     color: #ffff;
 }
-
-.favorite{
-    position: absolute;
-    color: rgb(145, 27, 27);
-    top: 4%;
-    right: 0;
-    font-size: 25px;
-    cursor: pointer;
-}

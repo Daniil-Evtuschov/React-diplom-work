@@ -37,12 +37,3 @@
     height: 40%;
     flex-shrink: 2;
 }
-
-.favorite{
-    color: rgb(145, 27, 27);
-    font-size: 25px;
-    position: absolute;
-    top: 3%;
-    right: 38%;
-    cursor: pointer;
-}

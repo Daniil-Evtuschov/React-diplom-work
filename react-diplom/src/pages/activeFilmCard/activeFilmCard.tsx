@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { InitialStateInt, filmsCardsInt } from "../../interfases";
 import Header from "../header/header";
 import  styleActiveFilmCard  from "./activeFilmCard.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-regular-svg-icons";
 import asideStyle from "../aside/aside.module.css";
@@ -12,16 +12,17 @@ const ActiveFilmCard = ()=>{
     let localItem:any = localStorage.getItem('local')
     let readyLocalItem:any = JSON.parse(localItem)
     console.log(readyLocalItem);
+    //activeCard
+    //favorite
+    const [card,setCard] = useState('activeCard')    
+
     
     return(
-        <>
-        <div>
-        <div><Header/></div>
             <div>
                 <div className={styleActiveFilmCard.activeFilmCardWrap}>
 
                     <div className={styleActiveFilmCard.activeFilmCardImgWrap}><img src={readyLocalItem.Poster} alt="" className={styleActiveFilmCard.activeFilmCardImg}/>
-                    <span onClick={(event)=>{addToFavorite(readyLocalItem,event)}} className={styleActiveFilmCard.favorite}><FontAwesomeIcon className={asideStyle.asideIcosn} icon={faBookmark} /></span>
+                    <span onClick={(event)=>{addToFavorite(readyLocalItem,event);setCard('activeCard')}} className={'favorite'}><FontAwesomeIcon className={asideStyle.asideIcosn} icon={faBookmark} /></span>
                     </div>
                     
                     <div className={styleActiveFilmCard.activeFilmCardContent}>
@@ -37,9 +38,6 @@ const ActiveFilmCard = ()=>{
                     </div>
                 </div>
             </div>
-        </div>
-
-        </>
     )
 }
 
