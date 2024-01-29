@@ -1,8 +1,8 @@
-import { filmsCardsInt } from "../../interfases"
+import { filmCardProps, filmsCardsInt } from "../../interfases"
 
 const favoriteMassiv: filmsCardsInt[]=[]
 
-function deleteFromFavorite (item:filmsCardsInt,event:React.MouseEvent) {
+function deleteFromFavorite (item:filmCardProps,event:React.MouseEvent) {
   event.stopPropagation() 
 
   let localStorageMassiv:any = localStorage.getItem('favorite')
@@ -16,7 +16,7 @@ function deleteFromFavorite (item:filmsCardsInt,event:React.MouseEvent) {
 
   let mass:any = [...favoriteMassiv,...parceLocalStorageMassiv]
 
-  const updatedCards = mass.filter((card:filmsCardsInt) => card.imdbID !== item.imdbID);
+  const updatedCards = mass.filter((card:filmsCardsInt) => card.id !== item.id);
 
   localStorage.setItem('favorite',JSON.stringify(updatedCards))
 }

@@ -5,10 +5,14 @@ import FavoritFilmsContent from "../favorite/favoriteContent";
 import Header from "../header/header"
 import  MainStyle  from "./main.module.css";
 import Aside from "../aside/aside";
+import { useDispatch } from "react-redux";
+import { getmoreFilms } from "./getMoreFilms";
 
 const Main = ()=>{
+    const dispatch = useDispatch()
+    
     return(
-
+<>
         <div className={MainStyle.mainWrap}>
             <Header />
             <Routes>
@@ -16,7 +20,10 @@ const Main = ()=>{
                 <Route path='/ActiveFilmCard' element={<ActiveFilmCard/>}/>
                 <Route path='/favoritFilmsContent' element={<FavoritFilmsContent/>}/>
             </Routes>
+            <button onClick={()=>{getmoreFilms()}} className={MainStyle.showMore}>Show more</button>
         </div>
+</>
+
     )
 }
 

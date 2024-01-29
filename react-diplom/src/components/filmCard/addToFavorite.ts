@@ -1,8 +1,8 @@
-import { filmsCardsInt } from "../../interfases"
+import { filmCardProps, filmsCardsInt } from "../../interfases"
 
-const favoriteMassiv: filmsCardsInt[]=[]
+const favoriteMassiv: filmCardProps[]=[]
 
-function addToFavorite(item:filmsCardsInt,event:React.MouseEvent) {
+function addToFavorite(item:filmCardProps,event:React.MouseEvent) {
     event.stopPropagation() 
     favoriteMassiv.push(item)
 
@@ -19,7 +19,7 @@ function addToFavorite(item:filmsCardsInt,event:React.MouseEvent) {
   let parceLocalStorageMassiv:any = JSON.parse(localStorageMassiv) 
   
   if (parceLocalStorageMassiv===null) {parceLocalStorageMassiv=['']}
-  parceLocalStorageMassiv.map((item:filmsCardsInt)=>item?['']:parceLocalStorageMassiv.pop())
+  parceLocalStorageMassiv.map((item:filmCardProps)=>item?['']:parceLocalStorageMassiv.pop())
 
   let mass:any = [...favoriteMassiv,...parceLocalStorageMassiv]
 

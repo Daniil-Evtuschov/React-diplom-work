@@ -8,16 +8,15 @@ import { InitialStateInt, filmsCardsInt, filmsCardsProps } from "../../interfase
 const MainContent =()=>{
     const dispatch = useDispatch();
     useEffect(()=>{dispatch(featchFilmsCards() as any)},[]);
-    // const films = useSelector((state:InitialStateInt)=>state.filmCards); 
     const films = useSelector((state:InitialStateInt)=>state.filmsCard); 
     
     return(
         <div className={styleMainContent.MainContentLayout}>
             {/* кинопоиск */}
-            {/* {films.map((item)=><FilmCard id={item.id} votes={item.votes.imdb} filmser={item.filmser.url} description={item.description} geners={'dramma'} filmName={item.name} />)} */}
+            {films.map((item)=><FilmCard id={item.id} rating={item.rating.kp} poster={item.poster.url} filmName={item.name} year={item.year} description={item.description} genres={item.genres.map(item=>item.name +' ')}/>)}
             
             {/* OMDb API */}
-            {films ? films.length && films.map((item)=><FilmCard Year={item.Year} Poster={item.Poster} Title={item.Title} Type={item.Type} imdbID={item.imdbID} favorite={false}/>):null}
+            {/* {films ? films.length && films.map((item)=><FilmCard Year={item.Year} Poster={item.Poster} Title={item.Title} Type={item.Type} imdbID={item.imdbID} favorite={false}/>):null} */}
         </div>
     )
 }
