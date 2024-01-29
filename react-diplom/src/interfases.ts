@@ -79,6 +79,8 @@ export interface filmsCardsInt{
     Title:string;
     Type:string;
     imdbID:string; 
+    Year:string;
+    favorite:boolean;
 }
 
 
@@ -90,6 +92,8 @@ export interface ActionsTypInt{
 export interface InitialStateInt{
     payload?:ActionsTypInt
     filmsCard: filmsCardsInt[]
+    activeFilmCard?:filmsCardsInt[]
+    favorite:boolean
 }
 
 

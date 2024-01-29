@@ -8,7 +8,9 @@
     
 
 }
-
+.titleWrap{
+    cursor: pointer;
+}
 .asideNavList{
     text-align: left;
     padding: 0;

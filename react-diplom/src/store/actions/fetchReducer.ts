@@ -5,6 +5,7 @@ export const getFilmsCards =(films: filmsCardsInt)=>({
   type: 'SHOW_FILM_CARDS',
   payload: films
 })
+
 // export const featchFilmsCards = ()=> async (dispatch: typeof store.dispatch)=>{
 
 //     const options = {
@@ -26,9 +27,11 @@ export const featchFilmsCards = ()=> async (dispatch: typeof store.dispatch)=>{
     const page = 2;
 
     const response = await fetch(`http://www.omdbapi.com/?apikey=${apiKey}&s=${encodeURIComponent(movieTitle)}&page=${page}`);
-        
+
     const data = await response.json();
-    console.log(data.Search);
-      
-    dispatch(getFilmsCards(data.Search)) 
+
+    const filmsCardData = data.Search
+
+          
+    dispatch(getFilmsCards(filmsCardData)) 
 }
