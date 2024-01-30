@@ -2,9 +2,13 @@ import { faBookmark, faFireFlameCurved, faGear, faHouse } from "@fortawesome/fre
 import asideStyle from "./aside.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Aside = ()=>{
     const navigate = useNavigate()
+    const [home,setHome]=useState('red')
+    const [favorie,setFavoirite]=useState('red')
+
     return(
     <aside className={asideStyle.asideWrap}>
             <div onClick={()=>{navigate('/home')}} className={asideStyle.titleWrap}>
@@ -14,10 +18,10 @@ const Aside = ()=>{
             <div className={asideStyle.asideListWrap}>
                     <div className={asideStyle.asideNav}>
                         <ul className={asideStyle.asideNavList}>
-                            <li onClick={()=>{navigate('/home')}} className={asideStyle.asideNavItem}><FontAwesomeIcon className={asideStyle.asideIcosn} icon={faHouse} />Home</li>
-                            <li className={asideStyle.asideNavItem}><FontAwesomeIcon className={asideStyle.asideIcosn} icon={faFireFlameCurved} />Trends</li>
-                            <li onClick={()=>navigate('/favoritFilmsContent')} className={asideStyle.asideNavItem}><FontAwesomeIcon className={asideStyle.asideIcosn} icon={faBookmark} />Favorities</li>
-                            <li className={asideStyle.asideNavItem}><FontAwesomeIcon className={asideStyle.asideIcosn} icon={faGear} />Settings</li>
+                            <li onClick={()=>{navigate('/home');setHome('blue')}} className={asideStyle.asideNavItem}><FontAwesomeIcon className={asideStyle.asideIcosn} icon={faHouse} />Home</li>
+                            <li className={asideStyle.asideNavItem} onClick={()=>{setHome('blue')}}  style={{ color: home }}><FontAwesomeIcon className={asideStyle.asideIcosn} icon={faFireFlameCurved} />Trends</li>
+                            <li onClick={()=>{navigate('/favoritFilmsContent');setFavoirite('blue')}} className={asideStyle.asideNavItem}><FontAwesomeIcon className={asideStyle.asideIcosn} icon={faBookmark} />Favorities</li>
+                            <li className={asideStyle.asideNavItem} onClick={()=>{setFavoirite('blue')}}  style={{ color: favorie }} ><FontAwesomeIcon className={asideStyle.asideIcosn} icon={faGear} />Settings</li>
                         </ul>
                     </div>
 

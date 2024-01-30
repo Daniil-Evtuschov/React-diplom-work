@@ -7,13 +7,14 @@ border-radius: none;
 }
 
 .input{
-    width: 80%;
+    width: 100%;
     color: #fff;
     border: none;
     border-radius: 5px;
     overflow: hidden;
     background-color: rgb(62, 66, 68);
-    padding: 10px 15px;
+    font-size: 15px;
+    padding: 15px;
 }
 
 .input::placeholder{

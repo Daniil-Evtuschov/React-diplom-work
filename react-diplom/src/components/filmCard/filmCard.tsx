@@ -18,24 +18,17 @@ const FilmCard = (props:filmCardProps)=>{
     const navigate = useNavigate();
     const [card,setCard] = useState('favorite')  
     markFavoriteCard(props)  
-    
-    // let localStorageMassiv:any = localStorage.getItem('favorite')
-    // let parceLocalStorageMassiv:filmCardProps[] = JSON.parse(localStorageMassiv)
-    // let r = parceLocalStorageMassiv.find((item:filmCardProps)=>item.id===props.id)
+    let cardMark = markFavoriteCard(props)
     
     // useEffect(()=>{setCard('activeCard')},[])
 
-
-    
-
-    
     return(
         <>
-        <div onClick={()=>{navigate('/ActiveFilmCard');dispatch(actvieFilmCard(props));setLocalStorageItem(props)}} className={styleFilmCard.filmCardWrap} key={props.id}>
-            <div className={styleFilmCard.filmCardWrapImg}>
+        <div onClick={()=>{navigate('/ActiveFilmCard');dispatch(actvieFilmCard(props));setLocalStorageItem(props)}} className={styleFilmCard.filmCardWrap}>
+            <div className={styleFilmCard.filmCardWrapImg} key={props.id}>
                 <span className={styleFilmCard.filmCardVote}>{props.rating}</span>
                 <img className={styleFilmCard.filmCardPoster}src={props.poster} alt="" />
-                <span onClick={(event)=>{addToFavorite(props,event);setCard('activeCard')}} className={card}><FontAwesomeIcon className={asideStyle.asideIcosn} icon={faBookmark} /></span>
+                <span onClick={(event)=>{addToFavorite(props,event);setCard('activeCard')}} className={cardMark}><FontAwesomeIcon className={asideStyle.asideIcosn} icon={faBookmark} /></span>
             </div>
             <div className={styleFilmCard.filmCardDescriptionWrap}>
                 <div className={styleFilmCard.filmCardDescription}>{props.filmName}</div>

@@ -113,6 +113,7 @@ export interface InitialStateInt{
     filmsCard: filmsCardsInt[]
     activeFilmCard?:filmsCardsInt[]
     favorite:boolean
+    searchFilms:filmsCardsInt[]
 }
 
 

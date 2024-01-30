@@ -4,13 +4,9 @@ import ActiveFilmCard from "../activeFilmCard/activeFilmCard";
 import FavoritFilmsContent from "../favorite/favoriteContent";
 import Header from "../header/header"
 import  MainStyle  from "./main.module.css";
-import Aside from "../aside/aside";
-import { useDispatch } from "react-redux";
-import { getmoreFilms } from "./getMoreFilms";
+import SearchResultContent from "../searchresultContent/searchresultContent";
 
-const Main = ()=>{
-    const dispatch = useDispatch()
-    
+const Main = ()=>{    
     return(
 <>
         <div className={MainStyle.mainWrap}>
@@ -19,8 +15,8 @@ const Main = ()=>{
                 <Route path='/home' element={<MainContent />}/>
                 <Route path='/ActiveFilmCard' element={<ActiveFilmCard/>}/>
                 <Route path='/favoritFilmsContent' element={<FavoritFilmsContent/>}/>
+                <Route path='/SearchResultContent' element={<SearchResultContent/>}/>
             </Routes>
-            <button onClick={()=>{getmoreFilms()}} className={MainStyle.showMore}>Show more</button>
         </div>
 </>
 

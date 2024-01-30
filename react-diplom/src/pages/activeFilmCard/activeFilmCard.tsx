@@ -7,19 +7,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import asideStyle from "../aside/aside.module.css";
 import addToFavorite from "../../components/filmCard/addToFavorite";
+import markFavoriteCard from "../../components/filmCard/marckFavoriteCard";
 
 const ActiveFilmCard = ()=>{
     let localItem:any = localStorage.getItem('local')
     let readyLocalItem:ActiveFilmCardPropsInt= JSON.parse(localItem)
     const [card,setCard] = useState('favorite')    
-
+    let cardMark = markFavoriteCard(readyLocalItem)
     
     return(
             <div>
                 <div className={styleActiveFilmCard.activeFilmCardWrap}>
 
                     <div className={styleActiveFilmCard.activeFilmCardImgWrap}><img src={readyLocalItem.poster} alt="" className={styleActiveFilmCard.activeFilmCardImg}/>
-                    <span onClick={(event)=>{addToFavorite(readyLocalItem,event);setCard('activeCard')}} className={card}><FontAwesomeIcon className={asideStyle.asideIcosn} icon={faBookmark} /></span>
+                    <span onClick={(event)=>{addToFavorite(readyLocalItem,event);setCard('activeCard')}} className={cardMark}><FontAwesomeIcon className={asideStyle.asideIcosn} icon={faBookmark} /></span>
                     </div>
                     
                     <div className={styleActiveFilmCard.activeFilmCardContent}>

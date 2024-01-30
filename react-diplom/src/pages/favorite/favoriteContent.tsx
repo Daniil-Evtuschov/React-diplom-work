@@ -7,7 +7,7 @@ import FavoriteCards from "../../components/favoriteCards/favoriteCards";
 
 const FavoritFilmsContent =()=>{
     const dispatch = useDispatch();
-    useEffect(()=>{dispatch(featchFilmsCards() as any)},[]);
+    // useEffect(()=>{dispatch(featchFilmsCards() as any)},[]);
     // const films = useSelector((state:InitialStateInt)=>state.filmCards); 
     const getStorageFilms:any = localStorage.getItem('favorite')
     const films:filmCardProps[] =JSON.parse(getStorageFilms)
@@ -15,7 +15,7 @@ const FavoritFilmsContent =()=>{
   
 
     return(
-        <div className={styleMainContent.MainContentLayout}>
+        <div className={styleMainContent.FavoritieContentLayout}>
             {/* кинопоиск */}
             {films ? films.length&&films.map((item)=><FavoriteCards id={item.id} 
             rating={item.rating} 
