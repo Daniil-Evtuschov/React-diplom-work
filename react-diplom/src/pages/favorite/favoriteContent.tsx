@@ -23,9 +23,9 @@ const FavoritFilmsContent =()=>{
             filmName={item.filmName} 
             genres={item.genres.map((item:string[])=>item+' ')} 
             year={item.year} 
-            description={item.description}/>):null}
-            {/* OMDb API */}
-            {/* {films.map((item:filmsCardsInt)=><FavoriteCards Year={item.Year} Poster={item.Poster} Title={item.Title} Type={item.Type} imdbID={item.imdbID} favorite={false}/>)} */}
+            description={item.description}
+            key={item.id}
+            />):null}
         </div>
     )
 }

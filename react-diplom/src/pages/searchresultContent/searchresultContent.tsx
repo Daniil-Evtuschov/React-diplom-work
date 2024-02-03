@@ -9,6 +9,8 @@ const SearchResultContent =()=>{
     const dispatch = useDispatch();
     useEffect(()=>{dispatch(featchFilmsCards('') as any)},[]);
     const films = useSelector((state:InitialStateInt)=>state.searchFilms); 
+
+    
     
     return(
         <>
@@ -16,16 +18,13 @@ const SearchResultContent =()=>{
             {/* кинопоиск */}
             {films ? films.length &&films.map((item)=><SearchResult 
             id={item.id}
-            rating={item.rating.kp} 
+            rating={item.rating.imdb} 
             poster={item.poster ? item.poster.url:''} 
             filmName={item.name} 
             year={item.year} 
             description={item.description} 
-            genres={item.genres.map(item=>item.name +' ')
-            }/>):null}
-            
-            {/* OMDb API */}
-            {/* {films ? films.length && films.map((item)=><FilmCard Year={item.Year} Poster={item.Poster} Title={item.Title} Type={item.Type} imdbID={item.imdbID} favorite={false}/>):null} */}
+            genres={item.genres.map(item=>item.name +' ')}
+            key={item.id}/>):null}
         </div>
          </>
     )

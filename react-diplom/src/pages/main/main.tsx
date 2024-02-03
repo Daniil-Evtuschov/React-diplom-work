@@ -5,6 +5,7 @@ import FavoritFilmsContent from "../favorite/favoriteContent";
 import Header from "../header/header"
 import  MainStyle  from "./main.module.css";
 import SearchResultContent from "../searchresultContent/searchresultContent";
+import TrendsContent from "../../components/trendsContent/trendsContent";
 
 const Main = ()=>{    
     return(
@@ -16,6 +17,7 @@ const Main = ()=>{
                 <Route path='/ActiveFilmCard' element={<ActiveFilmCard/>}/>
                 <Route path='/favoritFilmsContent' element={<FavoritFilmsContent/>}/>
                 <Route path='/SearchResultContent' element={<SearchResultContent/>}/>
+                <Route path='/TrendsContent' element={<TrendsContent/>}/>
             </Routes>
         </div>
 </>

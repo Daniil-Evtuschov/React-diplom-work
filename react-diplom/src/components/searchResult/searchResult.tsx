@@ -1,22 +1,24 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import addToFavorite from "../filmCard/addToFavorite";
-import { ActiveFilmCardPropsInt } from "../../interfases";
+import { ActiveFilmCardPropsInt, InitialStateInt } from "../../interfases";
 import styleSearch from "./searchResult.module.css";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import asideStyle from "../../pages/aside/aside.module.css";
 import { useNavigate } from "react-router-dom";
 import setLocalStorageItem from "../filmCard/localstorageActiveItme";
 import markFavoriteCard from "../filmCard/marckFavoriteCard";
+import { useSelector } from "react-redux";
 
 const SearchResult =(props:ActiveFilmCardPropsInt)=>{
-    const navigate = useNavigate()
-    let cardMark = markFavoriteCard(props)
-    
+    const navigate = useNavigate();
+    let cardMark = markFavoriteCard(props);
+
     return(
         <div>
         <div className={styleSearch.activeFilmCardWrap}>
-
-            <div onClick={()=>{navigate('/ActiveFilmCard');setLocalStorageItem(props)}} className={styleSearch.activeFilmCardImgWrap}><img src={props.poster} alt="" className={styleSearch.activeFilmCardImg}/>
+            <div onClick={()=>{navigate('/ActiveFilmCard');setLocalStorageItem(props)}} className={styleSearch.activeFilmCardImgWrap}>
+            <span className={styleSearch.filmCardVote}>{props.rating}</span>
+            <img src={props.poster} alt="" className={styleSearch.activeFilmCardImg}/>
             <span onClick={(event)=>{addToFavorite(props,event)}} className={cardMark}><FontAwesomeIcon className={asideStyle.asideIcosn} icon={faBookmark} /></span>
             </div>
             

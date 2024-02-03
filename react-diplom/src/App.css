@@ -1,7 +1,6 @@
 .App {
   text-align: center;
   color: #5a5a5a;
-  background-color: rgb(5, 5, 12);
 }
 
 .container{
@@ -26,6 +25,14 @@
   right: 0;
   font-size: 25px;
   cursor: pointer;
+}
+
+#lightSiteTheme{
+  background-color: #fff;
+  color:  black;
+}
+
+#darkSiteTheme{
 }
 
 @keyframes App-logo-spin {

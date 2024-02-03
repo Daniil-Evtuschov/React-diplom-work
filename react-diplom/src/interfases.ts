@@ -72,48 +72,39 @@ export interface filmsCardsInt{
     year: number;
 } 
 
-
-// //интерфейс для  omdbapi 
-// export interface filmsCardsInt{
-//     Poster:string;
-//     Title:string;
-//     Type:string;
-//     imdbID:string; 
-//     Year:string;
-//     favorite:boolean;
-// }
-
 export interface filmCardProps{
-    id: number;
-    rating: number;
-    poster: string;
-    filmName: string;
-    genres: any;
-    year: number;
-    description:string;
+  id: number;
+  rating: number;
+  poster: string;
+  filmName: string;
+  genres: any;
+  year: number;
+  description:string;
 }
 
 export interface ActiveFilmCardPropsInt{
-    id: number;
-    rating: number;
-    poster: string;
-    filmName: string;
-    genres: string[];
-    year: number;
-    description:string;
+  id: number;
+  rating: number;
+  poster: string;
+  filmName: string;
+  genres: string[];
+  year: number;
+  description:string;
 }
 
 export interface ActionsTypInt{
-    type: string;
-    payload?:filmsCardsInt[]
+  type: string;
+  payload?:filmsCardsInt[];
 }
 
 export interface InitialStateInt{
-    payload?:ActionsTypInt
-    filmsCard: filmsCardsInt[]
-    activeFilmCard?:filmsCardsInt[]
-    favorite:boolean
-    searchFilms:filmsCardsInt[]
+  payload?:ActionsTypInt;
+  filmsCard: filmsCardsInt[];
+  activeFilmCard?:filmsCardsInt[];
+  favorite:boolean;
+  searchFilms:filmsCardsInt[];
+  hightRaitingFilms:filmsCardsInt[];
+  theme:string;
 }
 
 

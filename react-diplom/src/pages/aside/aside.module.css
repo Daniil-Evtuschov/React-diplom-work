@@ -3,9 +3,7 @@
     flex-direction: column;
     align-items: flex-start;
     min-width: 250px;
-    max-height: 1000px;
-    
-
+    height: 95vh;
 }
 .titleWrap{
     cursor: pointer;
@@ -47,4 +45,14 @@
     flex-direction: column;
     justify-content: space-between;
     flex-grow: 1;
+}
+
+.darkThemeWrap{
+    display: flex;
+}
+
+.darkTheme,.lightTheme{
+    cursor: pointer;
+    font-size: 25px;
+    margin-right: 65px;
 }
