@@ -7,6 +7,7 @@
 }
 .titleWrap{
     cursor: pointer;
+    display: flex;
 }
 .asideNavList{
     text-align: left;
@@ -14,10 +15,10 @@
 }
 
 .asideNavItem{
-    list-style-type: none;
     margin-bottom: 35px;
     font-weight: 700;
     cursor: pointer;
+    list-style-type: none;
 }
 
 .asideIcosn{

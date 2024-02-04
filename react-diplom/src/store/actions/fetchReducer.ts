@@ -16,23 +16,25 @@ export const getTrendsFilmsCards = (hiRaitingFilms: filmsCardsInt[])=>({
 
 
 
-export const featchFilmsCards = (tenFilms:string) => async (dispatch: typeof store.dispatch)=>{
+export const featchFilmsCards = (tenFilms1:string) => async (dispatch: typeof store.dispatch)=>{
   const options = {
       method: 'GET',
-      headers: {accept: 'application/json', 'X-API-KEY': ' NMJ5Z6Y-4X149V8-QZZ8X9B-N1MRM09'} //твой токен тут :D
+      headers: {accept: 'application/json', 'X-API-KEY': '4HWWDX9-66EMDB2-JSFQVHE-R0WBRZ2'}
   };  
 
-  const response = await fetch(`https://api.kinopoisk.dev/v1.4/movie?page=1&limit=${tenFilms}`,options);
+  const response = await fetch(`https://api.kinopoisk.dev/v1.4/movie?page=1&limit=${tenFilms1}`,options);
         
   const data = await response.json();
 
-  dispatch(getFilmsCards(data.docs));     
+  console.log('я ответ с сервера',data.docs);
+  
+  dispatch(getFilmsCards(data.docs))     
 }
 
 export const featchHightRaitingFilms = (tenFilms:string) => async (dispatch: typeof store.dispatch)=>{
   const options = {
       method: 'GET',
-      headers: {accept: 'application/json', 'X-API-KEY': ' NMJ5Z6Y-4X149V8-QZZ8X9B-N1MRM09'}
+      headers: {accept: 'application/json', 'X-API-KEY': '4HWWDX9-66EMDB2-JSFQVHE-R0WBRZ2'}
   }; 
 
   const response = await fetch(`https://api.kinopoisk.dev/v1.4/movie?page=1&limit=${tenFilms}&rating.imdb=9-10`,options);

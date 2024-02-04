@@ -28,8 +28,8 @@ const FilmCard = (props:filmCardProps)=>{
                 <span onClick={(event)=>{addToFavorite(props,event);setCard('activeCard')}} className={cardMark}><FontAwesomeIcon className={asideStyle.asideIcosn} icon={faBookmark} /></span>
             </div>
             <div className={styleFilmCard.filmCardDescriptionWrap}>
-                <div className={styleFilmCard.filmCardDescription}>{props.filmName}</div>
-                <div className={styleFilmCard.filmCardDescription}>{props.genres}</div>
+                <div className={styleFilmCard.filmCardDescription}><h3>{props.filmName}</h3></div>
+                <div className={styleFilmCard.filmCardDescription}><p>{props.genres}</p></div>
             </div>
         </div>
         </>

@@ -3,7 +3,8 @@ import addToFavorite from "../filmCard/addToFavorite";
 import { ActiveFilmCardPropsInt, InitialStateInt } from "../../interfases";
 import styleSearch from "./searchResult.module.css";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
-import asideStyle from "../../pages/aside/aside.module.css";
+import asideStyle from "../../pages/activeFilmCard/activeFilmCard.module.css";
+import styleFilmCard from "../..//components/filmCard/filmCard.module.css";
 import { useNavigate } from "react-router-dom";
 import setLocalStorageItem from "../filmCard/localstorageActiveItme";
 import markFavoriteCard from "../filmCard/marckFavoriteCard";
@@ -17,7 +18,7 @@ const SearchResult =(props:ActiveFilmCardPropsInt)=>{
         <div>
         <div className={styleSearch.activeFilmCardWrap}>
             <div onClick={()=>{navigate('/ActiveFilmCard');setLocalStorageItem(props)}} className={styleSearch.activeFilmCardImgWrap}>
-            <span className={styleSearch.filmCardVote}>{props.rating}</span>
+            <span className={styleFilmCard.filmCardVote}>{props.rating}</span>
             <img src={props.poster} alt="" className={styleSearch.activeFilmCardImg}/>
             <span onClick={(event)=>{addToFavorite(props,event)}} className={cardMark}><FontAwesomeIcon className={asideStyle.asideIcosn} icon={faBookmark} /></span>
             </div>

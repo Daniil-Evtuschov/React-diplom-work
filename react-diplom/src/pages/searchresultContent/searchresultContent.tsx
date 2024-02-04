@@ -9,8 +9,6 @@ const SearchResultContent =()=>{
     const dispatch = useDispatch();
     useEffect(()=>{dispatch(featchFilmsCards('') as any)},[]);
     const films = useSelector((state:InitialStateInt)=>state.searchFilms); 
-
-    
     
     return(
         <>

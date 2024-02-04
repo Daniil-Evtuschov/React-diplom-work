@@ -2,13 +2,16 @@ import { faBookmark, faFireFlameCurved, faGear, faHouse, faMoon, faSun } from "@
 import asideStyle from "./aside.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { darkThemeOn, lightThemeOn } from "../../store/actions/lifgtAndDarkTheme";
+import App from "../../App";
+import { InitialStateInt } from "../../interfases";
 
 const Aside = ()=>{
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    let [logo,setLogo]=useState('#fff')
     let [home,setHome]=useState('rgb(100, 55, 224)')
     let [trends,setTrends]=useState('rgb(62, 66, 68)')
     let [favorie,setFavoirite]=useState('rgb(62, 66, 68)')
@@ -24,11 +27,13 @@ const Aside = ()=>{
     const handleClickSetDarkTheme= () => {
         setDarkTheme('rgb(100, 55, 224)');
         setLightTheme('rgb(62, 66, 68)');
+        setLogo('black')
       };
 
     const handleClickSetlightTheme= () => {
         setDarkTheme('rgb(62, 66, 68)');
         setLightTheme('rgb(100, 55, 224)');
+        setLogo('#fff')
       };
 
 
@@ -43,11 +48,10 @@ const Aside = ()=>{
         setHome('rgb(62, 66, 68)')
         setFavoirite('rgb(100, 55, 224)')
     };
-
     return(
     <aside className={asideStyle.asideWrap}>
             <div onClick={()=>{navigate('/home')}} className={asideStyle.titleWrap}>
-                <h1 className={asideStyle.mainTitle}>Pix</h1><span className={asideStyle.mainTitle}>ema</span>
+                <h1 className={asideStyle.mainTitle}>Pix</h1><span style={{color:logo}} className={asideStyle.mainTitle}>ema</span>
             </div>
 
             <div className={asideStyle.asideListWrap}>

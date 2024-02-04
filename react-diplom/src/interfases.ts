@@ -1,5 +1,5 @@
 export interface aboutUserProps{
-    userName : string;
+    userName : any;
     onClick?: () => void;
 }
 

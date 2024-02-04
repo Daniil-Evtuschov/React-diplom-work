@@ -1,11 +1,10 @@
-import { useSelector } from "react-redux";
 import { ActiveFilmCardPropsInt} from "../../interfases";
-import Header from "../header/header";
 import  styleActiveFilmCard  from "./activeFilmCard.module.css";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import asideStyle from "../aside/aside.module.css";
+import styleFilmCard from "../../components/filmCard/filmCard.module.css";
 import addToFavorite from "../../components/filmCard/addToFavorite";
 import markFavoriteCard from "../../components/filmCard/marckFavoriteCard";
 
@@ -18,8 +17,8 @@ const ActiveFilmCard = ()=>{
     return(
             <div>
                 <div className={styleActiveFilmCard.activeFilmCardWrap}>
-
                     <div className={styleActiveFilmCard.activeFilmCardImgWrap}><img src={readyLocalItem.poster} alt="" className={styleActiveFilmCard.activeFilmCardImg}/>
+                    <span className={styleFilmCard.filmCardVote}>{readyLocalItem.rating}</span>
                     <span onClick={(event)=>{addToFavorite(readyLocalItem,event);setCard('activeCard')}} className={cardMark}><FontAwesomeIcon className={asideStyle.asideIcosn} icon={faBookmark} /></span>
                     </div>
                     

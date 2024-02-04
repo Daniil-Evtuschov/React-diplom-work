@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   color: #5a5a5a;
+  
 }
 
 .container{
@@ -13,23 +14,36 @@
   color: rgb(145, 27, 27);
   position: absolute;
   top: 4%;
-  right: 0;
+  right: 15%;
   font-size: 25px;
   cursor: pointer;
+  max-width: 10px;
 }
 
 .favorite{
   color: rgb(124, 124, 124);
   position: absolute;
   top: 4%;
-  right: 0;
+  right: 15%;
   font-size: 25px;
   cursor: pointer;
+  max-width: 10px;
 }
 
-#lightSiteTheme{
+#lightSiteTheme {
   background-color: #fff;
   color:  black;
+  
+}
+#lightSiteTheme p{
+  color: #5a5a5a;
+}
+#lightSiteTheme h2{
+  color: black;
+}
+
+#lightSiteTheme h3{
+  color: black;
 }
 
 #darkSiteTheme{
