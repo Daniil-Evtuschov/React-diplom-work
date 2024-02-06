@@ -6,9 +6,14 @@ import logOutActive from "./logOutActive";
 
 const AboutUser = (props:aboutUserProps)=>{
     const [userPane,setUserPoanel]=useState(false)
-    function firstLiters(props:aboutUserProps) {
-        return  props.userName.split(' ').map((word: string) => word.charAt(0)).join('');
-    }    
+ 
+    function firstLiters(user:string) {
+        return user
+          .split(' ')
+          .map((word) => word.charAt(0))
+          .join('');
+      }
+
     const navigate = useNavigate()
 
 
@@ -18,7 +23,7 @@ const AboutUser = (props:aboutUserProps)=>{
         <div className={user.userConteiner}>
             <div onClick={()=>{setUserPoanel(!userPane)}} className={user.aboutUserWrap}>
                 <div onClick={props.onClick} className={user.aboutUser}>
-                    <div className={user.aboutUserAvatar}>{firstLiters(props)}</div>
+                    <div className={user.aboutUserAvatar}>{firstLiters(props.userName)}</div>
                     <div className={user.userNameWrap}><p className={user.userName}>{props.userName}</p></div>
                 </div>
             </div>

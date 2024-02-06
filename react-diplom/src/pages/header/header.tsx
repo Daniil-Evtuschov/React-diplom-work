@@ -7,7 +7,6 @@ import { searchPosts } from "../../store/actions/fetchReducer";
 import { useDispatch } from "react-redux";
 
 const Header = ()=>{
-  const [filters,setFilter]=useState(false)
   const dispatch = useDispatch()
   const [searchValue , setSearchValue] = useState('');
   let StorageuserName:string|null = localStorage.getItem('userName');
@@ -15,10 +14,6 @@ const Header = ()=>{
     StorageuserName='NotFound' 
 }
 
-function insertSpace(name:string) {
-  let mid = Math.floor(name.length / 2);
-  return name.slice(0, mid) + ' ' + name.slice(mid);
-}
 const handleKeyPress = (event:any) => {
   if (event.key === 'Enter') {
     //@ts-ignore
@@ -26,7 +21,6 @@ const handleKeyPress = (event:any) => {
   }
 };
 
-let result = insertSpace(StorageuserName);
 
   const navigate = useNavigate() 
 
@@ -34,21 +28,8 @@ let result = insertSpace(StorageuserName);
     <div className={headerStyle.headerWrap}>
           <div className={headerStyle.search} onClick={()=>{navigate('/SearchResultContent')}}>
             <Input onKeyDown={handleKeyPress} value={searchValue} onChange={setSearchValue} placeHolder={'search'}/>
-            {/* <div onClick={()=>{setFilter(true)}} className={headerStyle.filtersWrap}>
-              <span className={headerStyle.filtersLine}></span>
-              <span className={headerStyle.filtersLine}></span>
-              <span className={headerStyle.filtersLine}></span>
-            </div>
-            <div className={headerStyle.filtersListWrap}>
-              <ul className={headerStyle.filtersList}>
-                <li className={headerStyle.filtersListitem}></li>
-                <li className={headerStyle.filtersListitem}></li>
-                <li className={headerStyle.filtersListitem}></li>
-                <li className={headerStyle.filtersListitem}></li>
-              </ul>
-            </div> */}
           </div>
-          <AboutUser userName={result}/>
+          <AboutUser userName={StorageuserName}/>
     </div>
     
     )

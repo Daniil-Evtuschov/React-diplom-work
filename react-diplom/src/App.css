@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   color: #5a5a5a;
-  
+  width: 100%;
 }
 
 .container{
@@ -45,6 +45,20 @@
 #lightSiteTheme h3{
   color: black;
 }
+
+@media  (max-width: 1200px) {
+  .container{
+      padding: 10px;
+  }
+}
+
+
+@media  (max-width: 597px) {
+  .container{
+    margin: 0;
+  }
+}
+
 
 @keyframes App-logo-spin {
   from {

@@ -3,7 +3,6 @@ import { InitialStateInt, filmCardProps, filmsCardsInt, filmsCardsProps } from "
 import  styleFilmCard  from "./filmCard.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { actvieFilmCard } from "../../store/actions/activeFilmCardAction";
-import setLocalStorageItem from "./localstorageActiveItme";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons"
 import asideStyle from "../../pages/aside/aside.module.css";
@@ -23,6 +22,8 @@ const FilmCard = (props:filmCardProps)=>{
     function handleShowActiveCard() {
         //@ts-ignore
         dispatch(searchFilmId(props.id.toString()))
+        localStorage.setItem('localFilmId',props.id.toString())
+
     }
     //;setLocalStorageItem(props) удали это
     return(

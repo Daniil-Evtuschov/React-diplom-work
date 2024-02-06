@@ -5,7 +5,6 @@
 
 }
 
-
 .showMore{
         max-width: 200px;
         margin: auto;
@@ -18,4 +17,40 @@
         outline: none;
         border: none;
         cursor: pointer;
+}
+
+@media  (max-width: 1145px) {
+        .MainContentLayout{
+                display: grid;
+                grid-template-columns: 1fr  1fr  1fr  1fr;
+                gap: 25px;
+        }
+        
+}
+
+@media  (max-width: 950px) {
+        .MainContentLayout{
+                display: grid;
+                grid-template-columns: 1fr  1fr  1fr;
+                gap: 25px;
+        }
+        
+}
+
+@media  (max-width: 630px) {
+        .MainContentLayout{
+                display: grid;
+                grid-template-columns: 1fr  1fr ;
+                gap: 25px;
+        }
+        
+}
+
+@media  (max-width: 516px) {
+        .MainContentLayout{
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 25px;
+        }
+        
 }

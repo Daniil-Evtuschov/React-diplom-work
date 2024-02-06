@@ -1,12 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { InitialStateInt, filmsCardsInt, filmsCardsProps } from "../../interfases"
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import styleFilmCard from "./favoriteCards.module.css";
-import { actvieFilmCard } from "../../store/actions/activeFilmCardAction";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons"
 import asideStyle from "../../pages/aside/aside.module.css";
-import setLocalStorageItem from "../filmCard/localstorageActiveItme";
 import deleteFromFavorite from "./deleteFromfavorite";
 import { useState } from "react";
 import { searchFilmId } from "../../store/actions/fetchReducer";
@@ -21,7 +18,7 @@ const FavoriteCards = (props:any)=>{
     }
     return(
             <>{card&&
-                <div onClick={()=>{navigate('/ActiveFilmCard');handleShowActiveCard();setLocalStorageItem(props)}} className={styleFilmCard.filmCardWrap} key={props.id}>
+                <div onClick={()=>{navigate('/ActiveFilmCard');handleShowActiveCard()}} className={styleFilmCard.filmCardWrap} key={props.id}>
                     <div className={styleFilmCard.filmCardWrapImg}>
                         <span className={styleFilmCard.filmCardVote}>{props.rating}</span>
                         <img className={styleFilmCard.filmCardPoster}src={props.poster} alt="" />

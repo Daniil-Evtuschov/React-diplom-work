@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import MainContent from "../../pages/mainContent/mainContent";
 import ActiveFilmCard from "../../pages/activeFilmCard/activeFilmCard";
 import FavoritFilmsContent from "../../pages/favorite/favoriteContent";
@@ -9,13 +9,12 @@ import SignInPanel from "../../pages/signIn/signIn";
 import SignUpPanel from "../../pages/signUp/signUp";
 
 const Main = ()=>{    
-    let localItemId = localStorage.getItem('localID')
     return(
-        <div >
+        <div style={{flexGrow:'1'}}>
             <Header />
             <Routes>
                 <Route path='/home' element={<MainContent />}/>
-                <Route path='/ActiveFilmCard' element={<ActiveFilmCard/>}/>
+                <Route path={`/ActiveFilmCard`} element={<ActiveFilmCard/>}/>
                 <Route path='/favoritFilmsContent' element={<FavoritFilmsContent/>}/>
                 <Route path='/SearchResultContent' element={<SearchResultContent/>}/>
                 <Route path='/TrendsContent' element={<TrendsContent/>}/>

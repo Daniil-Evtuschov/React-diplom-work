@@ -1,21 +1,17 @@
-import {InitialStateInt, filmsCardsInt} from "../../interfases";
+import {InitialStateInt} from "../../interfases";
 import {useDispatch, useSelector } from "react-redux";
 import searchResultContent from "../searchresultContent/searchresultContent.module.css";
 import SearchResult from "../../components/searchResult/searchResult";
 import { useEffect } from "react";
 import { searchFilmId } from "../../store/actions/fetchReducer";
-import { useParams } from "react-router-dom";
 
 const ActiveFilmCard = ()=>{
     const dispatch = useDispatch()
     let films = useSelector((store:InitialStateInt)=>store.filmOnID)
-    let filmId = films.map((item:filmsCardsInt)=>item.id).join()
 
-    useEffect(()=>{console.log(filmId)},[])
-    
-    // dispatch(searchFilmId(props.id.toString()))
     //@ts-ignore
-    // useEffect(()=>{dispatch(searchFilmId(filmId))
+    useEffect(()=>{dispatch(searchFilmId(localStorage.getItem('localFilmId')))},[])
+
     return(
         <div className={searchResultContent.MainContentLayout}>
         {/* кинопоиск */}
