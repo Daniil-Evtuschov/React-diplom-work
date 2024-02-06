@@ -27,7 +27,6 @@ function addToFavorite(item:filmCardProps,event:React.MouseEvent) {
 
  localStorage.setItem('favorite',JSON.stringify(uniqueArray))
 
-
 }
 export default addToFavorite
 

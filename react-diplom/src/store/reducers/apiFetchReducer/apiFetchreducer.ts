@@ -1,5 +1,4 @@
-import { ActionsTypInt, InitialStateInt } from "../../../interfases";
-
+import { ActionsTypInt, InitialStateInt, filmsCardsInt } from "../../../interfases";
 const initialState:InitialStateInt = {
     filmsCard:[],
     activeFilmCard:[],
@@ -7,6 +6,7 @@ const initialState:InitialStateInt = {
     searchFilms:[],
     hightRaitingFilms:[],
     theme:'',
+    filmOnID:[]
 }
 
 const apiFetchreducer = (state = initialState, action:ActionsTypInt | any)=>{
@@ -28,6 +28,9 @@ const apiFetchreducer = (state = initialState, action:ActionsTypInt | any)=>{
             
         case "LIGHT_THEME":
             return {...state, theme: action.payload}
+     
+        case "SEARCH_FILIM_ID":
+            return {...state, filmOnID: action.payload}        
     default:
         return state
     }

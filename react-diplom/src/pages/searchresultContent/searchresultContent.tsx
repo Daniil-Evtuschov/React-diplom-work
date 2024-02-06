@@ -14,7 +14,7 @@ const SearchResultContent =()=>{
         <>
         <div className={searchResultContent.MainContentLayout}>
             {/* кинопоиск */}
-            {films ? films.length &&films.map((item)=><SearchResult 
+            {films.map((item)=><SearchResult 
             id={item.id}
             rating={item.rating.imdb} 
             poster={item.poster ? item.poster.url:''} 
@@ -22,7 +22,7 @@ const SearchResultContent =()=>{
             year={item.year} 
             description={item.description} 
             genres={item.genres.map(item=>item.name +' ')}
-            key={item.id}/>):null}
+            key={item.id}/>)}
         </div>
          </>
     )

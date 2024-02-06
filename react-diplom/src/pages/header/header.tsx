@@ -22,7 +22,8 @@ function insertSpace(name:string) {
 const handleKeyPress = (event:any) => {
   if (event.key === 'Enter') {
     //@ts-ignore
-    dispatch(searchPosts(searchValue))  }
+    dispatch(searchPosts(searchValue))  
+  }
 };
 
 let result = insertSpace(StorageuserName);

@@ -1,5 +1,6 @@
 import { store } from "../..";
 import { filmsCardsInt } from "../../interfases";
+import filmIdFinder from "../../pages/activeFilmCard/idFinder";
 import apiSearchFilms from "../../pages/header/filmsSearch";
 
 export const getFilmsCards = (films: filmsCardsInt[])=>({
@@ -8,21 +9,14 @@ export const getFilmsCards = (films: filmsCardsInt[])=>({
 })
 
 
-export const getTrendsFilmsCards = (hiRaitingFilms: filmsCardsInt[])=>({
-  type: 'SHOW_TRENDS_FILM_CARDS',
-  payload: hiRaitingFilms
-})
-
-
-
-
 export const featchFilmsCards = (tenFilms1:string) => async (dispatch: typeof store.dispatch)=>{
+  let localStorageMasivLeight = localStorage.getItem('massLenght')
   const options = {
       method: 'GET',
       headers: {accept: 'application/json', 'X-API-KEY': '4HWWDX9-66EMDB2-JSFQVHE-R0WBRZ2'}
   };  
 
-  const response = await fetch(`https://api.kinopoisk.dev/v1.4/movie?page=1&limit=${tenFilms1}`,options);
+  const response = await fetch(`https://api.kinopoisk.dev/v1.4/movie?page=1&limit=${tenFilms1||localStorageMasivLeight}`,options);
         
   const data = await response.json();
 
@@ -30,6 +24,13 @@ export const featchFilmsCards = (tenFilms1:string) => async (dispatch: typeof st
   
   dispatch(getFilmsCards(data.docs))     
 }
+
+
+export const getTrendsFilmsCards = (hiRaitingFilms: filmsCardsInt[])=>({
+  type: 'SHOW_TRENDS_FILM_CARDS',
+  payload: hiRaitingFilms
+})
+
 
 export const featchHightRaitingFilms = (tenFilms:string) => async (dispatch: typeof store.dispatch)=>{
   const options = {
@@ -54,3 +55,15 @@ export const searchPosts = (searchText:string) => async(dispatch: typeof store.d
   const data = await apiSearchFilms(searchText);
   dispatch(showSearchPost(data))
 }
+
+
+export const showFilmOnId=(post:filmsCardsInt[])=>({
+  type:'SEARCH_FILIM_ID',
+  payload: post
+})
+
+export const searchFilmId = (id:string) => async(dispatch: typeof store.dispatch)=>{
+  const data = await filmIdFinder(id);
+  dispatch(showFilmOnId(data))
+}
+

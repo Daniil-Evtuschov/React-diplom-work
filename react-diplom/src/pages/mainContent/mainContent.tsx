@@ -7,14 +7,23 @@ import { InitialStateInt} from "../../interfases";
 
 const MainContent =()=>{
     const dispatch = useDispatch();
-    useEffect(()=>{handleTenFilmsAdd()},[]);
-    const films = useSelector((state:InitialStateInt)=>state.filmsCard);     
+    const films = useSelector((state:InitialStateInt)=>state.filmsCard);    
 
+    useEffect(()=>{
+        if (films.length===0) {
+            handleTenFilmsAdd()
+        }
+    },[]);
+    
     const handleTenFilmsAdd =()=>{
         let result = films.length+1
-        console.log('я заноза',result);
-              
+        localStorage.setItem('massLenght',result.toString())
+        if (result!=undefined) {
+           
         dispatch(featchFilmsCards(result.toString()) as any)
+            
+        }else{}
+        console.log('я заноза',result)
     }
     return(
         <>

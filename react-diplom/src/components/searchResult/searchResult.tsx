@@ -8,19 +8,29 @@ import styleFilmCard from "../..//components/filmCard/filmCard.module.css";
 import { useNavigate } from "react-router-dom";
 import setLocalStorageItem from "../filmCard/localstorageActiveItme";
 import markFavoriteCard from "../filmCard/marckFavoriteCard";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { searchFilmId } from "../../store/actions/fetchReducer";
 
 const SearchResult =(props:ActiveFilmCardPropsInt)=>{
+    const dispatch = useDispatch()
     const navigate = useNavigate();
+    const [card,setCard] = useState('favorite')  
+    markFavoriteCard(props)  
     let cardMark = markFavoriteCard(props);
-
+    useEffect(()=>{console.log('filmId')},[])
+    
+    function handleShowActiveCard() {
+        //@ts-ignore
+        dispatch(searchFilmId(props.id.toString()))
+    }
     return(
         <div>
         <div className={styleSearch.activeFilmCardWrap}>
-            <div onClick={()=>{navigate('/ActiveFilmCard');setLocalStorageItem(props)}} className={styleSearch.activeFilmCardImgWrap}>
+            <div onClick={()=>{navigate('/ActiveFilmCard');handleShowActiveCard()}} className={styleSearch.activeFilmCardImgWrap}>
             <span className={styleFilmCard.filmCardVote}>{props.rating}</span>
             <img src={props.poster} alt="" className={styleSearch.activeFilmCardImg}/>
-            <span onClick={(event)=>{addToFavorite(props,event)}} className={cardMark}><FontAwesomeIcon className={asideStyle.asideIcosn} icon={faBookmark} /></span>
+            <span onClick={(event)=>{addToFavorite(props,event);setCard('activeCard')}} className={cardMark||'favorite'}><FontAwesomeIcon className={asideStyle.asideIcosn} icon={faBookmark} /></span>
             </div>
             
             <div className={styleSearch.activeFilmCardContent}>

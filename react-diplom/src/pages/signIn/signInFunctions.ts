@@ -11,7 +11,7 @@ export const handleAuthCklic = async (inputEmailValue:string,inputPasswordValue:
     })
   })
   .then((response)=>response.json())
-  .then((response)=>{localStorage.setItem('secretAccess',response.access)})      
+  .then((response)=>{localStorage.setItem('secretAccess',response.access);localStorage.setItem('refreshToken',response.refresh)})      
 }
 
 export const handleRefreshClik= async (refreshAccess:string)=>{ 

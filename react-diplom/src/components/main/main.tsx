@@ -9,6 +9,7 @@ import SignInPanel from "../../pages/signIn/signIn";
 import SignUpPanel from "../../pages/signUp/signUp";
 
 const Main = ()=>{    
+    let localItemId = localStorage.getItem('localID')
     return(
         <div >
             <Header />

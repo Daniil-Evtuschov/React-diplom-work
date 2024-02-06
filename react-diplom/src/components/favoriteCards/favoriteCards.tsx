@@ -9,15 +9,19 @@ import asideStyle from "../../pages/aside/aside.module.css";
 import setLocalStorageItem from "../filmCard/localstorageActiveItme";
 import deleteFromFavorite from "./deleteFromfavorite";
 import { useState } from "react";
+import { searchFilmId } from "../../store/actions/fetchReducer";
 
 const FavoriteCards = (props:any)=>{
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [card,setCard] = useState(true)    
-
+    function handleShowActiveCard() {
+        //@ts-ignore
+        dispatch(searchFilmId(props.id.toString()))
+    }
     return(
             <>{card&&
-                <div onClick={()=>{navigate('/ActiveFilmCard');dispatch(actvieFilmCard(props));setLocalStorageItem(props)}} className={styleFilmCard.filmCardWrap} key={props.id}>
+                <div onClick={()=>{navigate('/ActiveFilmCard');handleShowActiveCard();setLocalStorageItem(props)}} className={styleFilmCard.filmCardWrap} key={props.id}>
                     <div className={styleFilmCard.filmCardWrapImg}>
                         <span className={styleFilmCard.filmCardVote}>{props.rating}</span>
                         <img className={styleFilmCard.filmCardPoster}src={props.poster} alt="" />

@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { aboutUserProps } from "../../interfases";
 import  user  from "./aboutUser.module.css";
 import { useNavigate } from "react-router-dom";
+import logOutActive from "./logOutActive";
 
 const AboutUser = (props:aboutUserProps)=>{
     const [userPane,setUserPoanel]=useState(false)
@@ -9,6 +10,8 @@ const AboutUser = (props:aboutUserProps)=>{
         return  props.userName.split(' ').map((word: string) => word.charAt(0)).join('');
     }    
     const navigate = useNavigate()
+
+
 
     return(
     <>
@@ -24,7 +27,7 @@ const AboutUser = (props:aboutUserProps)=>{
                 <ul>
                     <li onClick={()=>{navigate('SignIn')}} className={user.acountPanelItem}>Sign In</li>
                     <li onClick={()=>{navigate('SignUp')}} className={user.acountPanelItem}>Sign Up</li>
-                    <li className={user.acountPanelItem}>Log Out</li>
+                    <li onClick={()=>{logOutActive()}} className={user.acountPanelItem}>Log Out</li>
                 </ul>
             </div>}
 

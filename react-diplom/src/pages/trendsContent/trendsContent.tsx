@@ -9,7 +9,11 @@ const TrendsContent =()=>{
     const dispatch = useDispatch();
     const films = useSelector((state:InitialStateInt)=>state.hightRaitingFilms); 
 
-    useEffect(()=>{handleTenHightRatingFilmsAdd()},[]);
+    useEffect(()=>{
+        if (films.length===0) {
+            handleTenHightRatingFilmsAdd()
+        }
+    },[]);
     
     const handleTenHightRatingFilmsAdd =()=>{
         const result = films.length+1

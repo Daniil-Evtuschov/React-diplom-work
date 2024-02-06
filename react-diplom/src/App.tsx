@@ -6,7 +6,6 @@ import { InitialStateInt } from './interfases';
 
 function App() {
 const theme = useSelector((state:InitialStateInt)=>state.theme);
-
   return (
       <div className="App" id={theme}>      
         <div className='container'>
