@@ -1,25 +1,19 @@
+import { useSelector } from 'react-redux';
 import './App.css';
-import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 import Aside from './pages/aside/aside';
-import ActiveFilmCard from './pages/activeFilmCard/activeFilmCard';
 import Main from './pages/main/main';
-import FavoritFilmsContent from './pages/favorite/favoriteContent';
-import Header from './pages/header/header';
+import { InitialStateInt } from './interfases';
 
 function App() {
+const theme = useSelector((state:InitialStateInt)=>state.theme);
+
   return (
-      <div className="App">      
+      <div className="App" id={theme}>      
         <div className='container'>
-          <BrowserRouter>
-          <Aside/>
-            <Routes>
-              <Route path='/home' element={<Main/>}/>
-              <Route path='/ActiveFilmCard' element={<ActiveFilmCard/>}/>
-              <Route path='/favoritFilmsContent' element={<FavoritFilmsContent/>}/>
-            </Routes>
-        </BrowserRouter>
+            <Aside/>
+            <Main/>
         </div>
-    </div>
+      </div>
   );
 }
 

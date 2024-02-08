@@ -1,20 +1,24 @@
 .activeFilmCardWrap{
     display: flex;
+    padding: 15px;
+    margin: 20px 0 ;
 }
+
 
 .activeFilmCardImg{
     width: 100%;
     height: 100%;
-
     object-fit:contain;
-    object-position: center;
+    object-position: top;
 }
 
 .activeFilmCardImgWrap{
-    max-width: 450px;
+    max-width: 350px;
     max-height: 650px;
     display: flex;
     position: relative;
+    cursor: pointer;
+
 }
 
 .activeFilmCardTitle{
@@ -38,4 +42,15 @@
     flex-shrink: 2;
     max-width: 600px;
     padding: 0 50px;
+}
+
+.filmCardVote{
+    background-color: rgb(46, 192, 46);
+    top: 5%;
+    left: 5%;
+    color: #ffff;
+    border-radius: 4px;
+    overflow: hidden;
+    padding: 1px 5px;
+    position: absolute;
 }

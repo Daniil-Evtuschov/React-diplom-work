@@ -1,6 +1,6 @@
-import { filmsCardsInt } from "../../interfases"
+import { filmCardProps, filmsCardsInt } from "../../interfases"
 
-function setLocalStorageItem(item:filmsCardsInt) {
+function setLocalStorageItem(item:filmCardProps) {
     localStorage.setItem('local',JSON.stringify(item))
 }
 

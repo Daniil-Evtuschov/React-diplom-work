@@ -1,7 +1,6 @@
 .App {
   text-align: center;
   color: #5a5a5a;
-  background-color: rgb(5, 5, 12);
 }
 
 .container{
@@ -9,6 +8,31 @@
   padding: 0 80px;
   padding-top: 40px;
   display: flex;
+}
+.activeCard{
+  color: rgb(145, 27, 27);
+  position: absolute;
+  top: 4%;
+  right: 0;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.favorite{
+  color: rgb(124, 124, 124);
+  position: absolute;
+  top: 4%;
+  right: 0;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+#lightSiteTheme{
+  background-color: #fff;
+  color:  black;
+}
+
+#darkSiteTheme{
 }
 
 @keyframes App-logo-spin {
