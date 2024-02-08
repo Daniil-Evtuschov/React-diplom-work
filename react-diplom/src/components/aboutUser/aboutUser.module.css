@@ -1,5 +1,6 @@
 .aboutUserWrap{
   max-width: 280px;
+  margin-left:30px;
 }
 
 .aboutUser{
@@ -23,8 +24,9 @@
 
 .userName{
   color: white;
-  font-size: 20px;
+  font-size: 15px;
   margin: 0;
+  
 }
 
 .userNameWrap{

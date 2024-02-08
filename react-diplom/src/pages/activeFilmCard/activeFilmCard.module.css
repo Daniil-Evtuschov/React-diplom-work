@@ -7,13 +7,14 @@
     height: 100%;
 
     object-fit:cover;
-    object-position: left;
+    object-position: center;
 }
 
 .activeFilmCardImgWrap{
-   width: 70%;
+    width: 60%;
    height: 100%;
    display: flex;
+   position: relative;
 }
 
 .activeFilmCardTitle{
@@ -34,5 +35,14 @@
     flex-direction: column;
     text-align: left;
     height: 40%;
+    flex-shrink: 2;
 }
 
+.favorite{
+    color: rgb(145, 27, 27);
+    font-size: 25px;
+    position: absolute;
+    top: 3%;
+    right: 38%;
+    cursor: pointer;
+}
