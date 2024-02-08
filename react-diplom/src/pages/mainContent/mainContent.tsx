@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import FilmCard from "../filmCard/filmCard"
+import FilmCard from "../../components/filmCard/filmCard"
 import  styleMainContent  from "./mainContent.module.css";
 import { featchFilmsCards } from "../../store/actions/fetchReducer";
 import { useEffect } from "react";
@@ -7,14 +7,24 @@ import { InitialStateInt} from "../../interfases";
 
 const MainContent =()=>{
     const dispatch = useDispatch();
-    useEffect(()=>{handleTenFilmsAdd()},[]);
-    const films = useSelector((state:InitialStateInt)=>state.filmsCard);     
+    const films = useSelector((state:InitialStateInt)=>state.filmsCard);    
 
-    const handleTenFilmsAdd =()=>{
-        const result =10+1      
-        dispatch(featchFilmsCards(result.toString()) as any)
-    }
+    useEffect(()=>{
+        if (films.length===0) {
+            handleTenFilmsAdd()
+        }
+    },[]);
     
+    const handleTenFilmsAdd =()=>{
+        let result = films.length+1
+        localStorage.setItem('massLenght',result.toString())
+        if (result!=undefined) {
+           
+        dispatch(featchFilmsCards(result.toString()) as any)
+            
+        }else{}
+        console.log('я заноза',result)
+    }
     return(
         <>
         <div className={styleMainContent.MainContentLayout}>

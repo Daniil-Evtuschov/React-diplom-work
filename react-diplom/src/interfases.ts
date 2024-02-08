@@ -1,5 +1,5 @@
 export interface aboutUserProps{
-    userName : string;
+    userName : any;
     onClick?: () => void;
 }
 
@@ -105,6 +105,7 @@ export interface InitialStateInt{
   searchFilms:filmsCardsInt[];
   hightRaitingFilms:filmsCardsInt[];
   theme:string;
+  filmOnID:filmsCardsInt[]
 }
 
 

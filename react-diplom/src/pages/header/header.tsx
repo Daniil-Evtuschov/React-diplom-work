@@ -7,16 +7,29 @@ import { searchPosts } from "../../store/actions/fetchReducer";
 import { useDispatch } from "react-redux";
 
 const Header = ()=>{
-    const dispatch = useDispatch()
+  const dispatch = useDispatch()
   const [searchValue , setSearchValue] = useState('');
-  const navigate = useNavigate() 
+  let StorageuserName:string|null = localStorage.getItem('userName');
+  if (StorageuserName==null) {
+    StorageuserName='NotFound' 
+}
+
+const handleKeyPress = (event:any) => {
+  if (event.key === 'Enter') {
     //@ts-ignore
-    dispatch(searchPosts(searchValue))
+    dispatch(searchPosts(searchValue))  
+  }
+};
+
+
+  const navigate = useNavigate() 
 
     return(
     <div className={headerStyle.headerWrap}>
-            <div className={headerStyle.search} onClick={()=>{navigate('/SearchResultContent')}}><Input value={searchValue} onChange={setSearchValue}/></div>
-            <AboutUser userName="Чмукичь Верутус" />
+          <div className={headerStyle.search} onClick={()=>{navigate('/SearchResultContent')}}>
+            <Input onKeyDown={handleKeyPress} value={searchValue} onChange={setSearchValue} placeHolder={'search'}/>
+          </div>
+          <AboutUser userName={StorageuserName}/>
     </div>
     
     )

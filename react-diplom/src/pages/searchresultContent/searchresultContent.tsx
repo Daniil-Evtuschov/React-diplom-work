@@ -10,13 +10,11 @@ const SearchResultContent =()=>{
     useEffect(()=>{dispatch(featchFilmsCards('') as any)},[]);
     const films = useSelector((state:InitialStateInt)=>state.searchFilms); 
 
-    
-    
     return(
         <>
         <div className={searchResultContent.MainContentLayout}>
             {/* кинопоиск */}
-            {films ? films.length &&films.map((item)=><SearchResult 
+            {films.map((item:filmsCardsInt)=><SearchResult 
             id={item.id}
             rating={item.rating.imdb} 
             poster={item.poster ? item.poster.url:''} 
@@ -24,10 +22,12 @@ const SearchResultContent =()=>{
             year={item.year} 
             description={item.description} 
             genres={item.genres.map(item=>item.name +' ')}
-            key={item.id}/>):null}
+            key={item.id}/>)}
         </div>
          </>
     )
 }
 
 export default SearchResultContent
+
+//previewUrl

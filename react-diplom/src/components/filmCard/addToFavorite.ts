@@ -22,13 +22,10 @@ function addToFavorite(item:filmCardProps,event:React.MouseEvent) {
   parceLocalStorageMassiv.map((item:filmCardProps)=>item?['']:parceLocalStorageMassiv.pop())
 
   let mass:any = [...favoriteMassiv,...parceLocalStorageMassiv]
-
-  let array = mass;
   
   let uniqueArray = removeDuplicates(mass);
 
  localStorage.setItem('favorite',JSON.stringify(uniqueArray))
-
 
 }
 export default addToFavorite

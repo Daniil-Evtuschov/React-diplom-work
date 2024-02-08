@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import FilmCard from "../filmCard/filmCard"
-import  styleTrends  from "./trendsContent.module.css";
+import FilmCard from "../../components/filmCard/filmCard"
+import  styleMainContent  from "../mainContent/mainContent.module.css";
 import { featchHightRaitingFilms } from "../../store/actions/fetchReducer";
 import { useEffect } from "react";
 import { InitialStateInt} from "../../interfases";
@@ -8,16 +8,21 @@ import { InitialStateInt} from "../../interfases";
 const TrendsContent =()=>{
     const dispatch = useDispatch();
     const films = useSelector((state:InitialStateInt)=>state.hightRaitingFilms); 
+
+    useEffect(()=>{
+        if (films.length===0) {
+            handleTenHightRatingFilmsAdd()
+        }
+    },[]);
     
     const handleTenHightRatingFilmsAdd =()=>{
         const result = films.length+1
         dispatch(featchHightRaitingFilms(result.toString()) as any)        
     }
-    useEffect(()=>{handleTenHightRatingFilmsAdd()},[handleTenHightRatingFilmsAdd]);
 
     return(
         <>
-        <div className={styleTrends.MainContentLayout}>
+        <div className={styleMainContent.MainContentLayout}>
             {/* кинопоиск */}
             {films ? films.length && films.map((item)=><FilmCard 
             id={item.id}
@@ -30,7 +35,7 @@ const TrendsContent =()=>{
             key={item.id}
             />):null}
         </div>
-         <button onClick={()=>{handleTenHightRatingFilmsAdd()}} className={styleTrends.showMore}>Show more</button>
+         <button onClick={()=>{handleTenHightRatingFilmsAdd()}} className={styleMainContent.showMore}>Show more</button>
          </>
     )
 }

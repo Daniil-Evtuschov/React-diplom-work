@@ -8,13 +8,50 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 50px;
+    flex-grow: 2;
 }
 
 .search{
-    width: 80%;
+    width: 90%;
     color: #fff;
     border: none;
     border-radius: 5px;
     overflow: hidden;
     background-color: rgb(62, 66, 68);
+    position: relative;
+    flex-grow: 2;
+    width: 100%;
 }
+
+.filtersWrap{
+    width: 20px;
+    height: 15px;
+    position: absolute;
+    top:30%;
+    right: 2%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: end;
+    cursor: pointer;
+}
+
+.filtersLine{
+    width: 100%;
+    height: 2px;
+    background-color: rgb(98, 103, 105);
+}
+span:nth-of-type(1){
+    width:100%;
+    
+  }
+  
+  span:nth-of-type(2){
+    width:60%;
+  }
+  
+  
+  span:nth-of-type(3){
+    width:40%;
+   
+  }

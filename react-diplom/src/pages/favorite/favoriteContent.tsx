@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import  styleMainContent  from "./mainContent.module.css";
+import  styleMainContent  from "../mainContent/mainContent.module.css";
 import { useEffect } from "react";
 import { featchFilmsCards } from "../../store/actions/fetchReducer";
 import { InitialStateInt, filmCardProps, filmsCardsInt } from "../../interfases";
@@ -15,7 +15,7 @@ const FavoritFilmsContent =()=>{
   
 
     return(
-        <div className={styleMainContent.FavoritieContentLayout}>
+        <div className={styleMainContent.MainContentLayout}>
             {/* кинопоиск */}
             {films ? films.length&&films.map((item)=><FavoriteCards id={item.id} 
             rating={item.rating} 
