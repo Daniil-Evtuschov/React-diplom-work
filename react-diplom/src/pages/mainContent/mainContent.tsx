@@ -16,7 +16,7 @@ const MainContent =()=>{
     },[]);
     
     const handleTenFilmsAdd =()=>{
-        let result = films.length+1
+        let result = films.length+10
         localStorage.setItem('massLenght',result.toString())
         if (result!=undefined) {
            

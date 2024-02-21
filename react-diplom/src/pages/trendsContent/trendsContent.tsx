@@ -16,7 +16,7 @@ const TrendsContent =()=>{
     },[]);
     
     const handleTenHightRatingFilmsAdd =()=>{
-        const result = films.length+1
+        const result = films.length+10
         dispatch(featchHightRaitingFilms(result.toString()) as any)        
     }
 

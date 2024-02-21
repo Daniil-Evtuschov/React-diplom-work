@@ -13,7 +13,7 @@ export const featchFilmsCards = (tenFilms1:string) => async (dispatch: typeof st
   let localStorageMasivLeight = localStorage.getItem('massLenght')
   const options = {
       method: 'GET',
-      headers: {accept: 'application/json', 'X-API-KEY': 'KZQBXH4-DRJ4JMQ-P29RH66-FYG0S14'}
+      headers: {accept: 'application/json', 'X-API-KEY': '4HWWDX9-66EMDB2-JSFQVHE-R0WBRZ2'}
   };  
 
   const response = await fetch(`https://api.kinopoisk.dev/v1.4/movie?page=1&limit=${tenFilms1||localStorageMasivLeight}`,options);
@@ -35,7 +35,7 @@ export const getTrendsFilmsCards = (hiRaitingFilms: filmsCardsInt[])=>({
 export const featchHightRaitingFilms = (tenFilms:string) => async (dispatch: typeof store.dispatch)=>{
   const options = {
       method: 'GET',
-      headers: {accept: 'application/json', 'X-API-KEY': 'KZQBXH4-DRJ4JMQ-P29RH66-FYG0S14'}
+      headers: {accept: 'application/json', 'X-API-KEY': '4HWWDX9-66EMDB2-JSFQVHE-R0WBRZ2'}
   }; 
 
   const response = await fetch(`https://api.kinopoisk.dev/v1.4/movie?page=1&limit=${tenFilms}&rating.imdb=9-10`,options);
