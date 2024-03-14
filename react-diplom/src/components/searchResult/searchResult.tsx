@@ -5,15 +5,15 @@ import styleSearch from "./searchResult.module.css";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import asideStyle from "../../pages/aside/aside.module.css";
 import styleFilmCard from "../..//components/filmCard/filmCard.module.css";
-import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import markFavoriteCard from "../filmCard/marckFavoriteCard";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
 import { searchFilmId } from "../../store/actions/fetchReducer";
 
 const SearchResult =(props:ActiveFilmCardPropsInt)=>{
+    const {id}= useParams()
     const dispatch = useDispatch()
-    const navigate = useNavigate();
     const [card,setCard] = useState('favorite')      
 
     markFavoriteCard(props)  
@@ -22,15 +22,14 @@ const SearchResult =(props:ActiveFilmCardPropsInt)=>{
     function handleShowActiveCard() {
         //@ts-ignore
         dispatch(searchFilmId(props.id.toString()))
-        localStorage.setItem('localFilmId',props.id.toString())
     }
     return(
         <div>
         <div className={styleSearch.activeFilmCardWrap}>
-            <div onClick={()=>{navigate('/ActiveFilmCard');handleShowActiveCard()}} className={styleSearch.activeFilmCardImgWrap}>
-            <span className={styleFilmCard.filmCardVote}>{props.rating}</span>
-            <img src={props.poster} alt="" className={styleSearch.activeFilmCardImg}/>
-            <span onClick={(event)=>{addToFavorite(props,event);setCard('activeCard')}} className={cardMark||'favorite'}><FontAwesomeIcon className={asideStyle.asideIcosn} icon={faBookmark} /></span>
+            <div onClick={()=>{handleShowActiveCard()}} className={styleSearch.activeFilmCardImgWrap}>
+                    <span className={styleFilmCard.filmCardVote}>{props.rating}</span>
+                    <img src={props.poster} alt="" className={styleSearch.activeFilmCardImg}/>
+                    <span onClick={(event)=>{addToFavorite(props,event);setCard('activeCard')}} className={cardMark||'favorite'}><FontAwesomeIcon className={asideStyle.asideIcosn} icon={faBookmark} /></span>
             </div>
             
             <div className={styleSearch.activeFilmCardContent}>

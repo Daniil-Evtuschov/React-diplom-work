@@ -53,10 +53,15 @@
     display: flex;
 }
 
+a{
+    text-decoration: none;
+    color: rgb(62, 66, 68);
+}
+
 .darkTheme,.lightTheme{
     cursor: pointer;
     font-size: 25px;
-    margin-right: 65px;
+    margin-right: 65px; 
 }
 
 .footerWrap{

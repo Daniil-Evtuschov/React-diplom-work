@@ -1,23 +1,26 @@
 import { useDispatch, useSelector } from "react-redux";
 import  styleMainContent  from "../mainContent/mainContent.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { featchFilmsCards } from "../../store/actions/fetchReducer";
 import { InitialStateInt, filmCardProps, filmsCardsInt } from "../../interfases";
 import FavoriteCards from "../../components/favoriteCards/favoriteCards";
 
 const FavoritFilmsContent =()=>{
-    const dispatch = useDispatch();
-    // useEffect(()=>{dispatch(featchFilmsCards() as any)},[]);
-    // const films = useSelector((state:InitialStateInt)=>state.filmCards); 
+    const [filmsLeinght,setFilmsLeinght]= useState(true)
     const getStorageFilms:any = localStorage.getItem('favorite')
-    const films:filmCardProps[] =JSON.parse(getStorageFilms)
-
-  
+    const films:filmCardProps[] =JSON.parse(getStorageFilms)||[]
+    
+    useEffect(()=>{
+        if (films.length>0) {
+        console.log('1');
+        setFilmsLeinght(false)
+        }else{setFilmsLeinght(true)}
+        },[films])
 
     return(
+        <>
         <div className={styleMainContent.MainContentLayout}>
-            {/* кинопоиск */}
-            {films ? films.length&&films.map((item)=><FavoriteCards id={item.id} 
+            {(films || []).map((item)=><FavoriteCards id={item.id} 
             rating={item.rating} 
             poster={item.poster} 
             filmName={item.filmName} 
@@ -25,8 +28,14 @@ const FavoritFilmsContent =()=>{
             year={item.year} 
             description={item.description}
             key={item.id}
-            />):null}
+            />)}
         </div>
+        {filmsLeinght&&
+        <>
+        <h2>Add Something...</h2>
+        </>
+        }
+        </>
     )
 }
 

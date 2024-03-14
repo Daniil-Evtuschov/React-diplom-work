@@ -18,7 +18,7 @@ function deleteFromFavorite (item:filmCardProps,event:React.MouseEvent) {
 
   const updatedCards = mass.filter((card:filmsCardsInt) => card.id !== item.id);
 
-  localStorage.setItem('favorite',JSON.stringify(updatedCards))
+  localStorage.setItem('favorite',JSON.stringify(updatedCards))  
 }
 
 export default deleteFromFavorite

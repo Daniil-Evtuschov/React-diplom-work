@@ -8,15 +8,16 @@ import { InitialStateInt} from "../../interfases";
 const TrendsContent =()=>{
     const dispatch = useDispatch();
     const films = useSelector((state:InitialStateInt)=>state.hightRaitingFilms); 
-
+    
     useEffect(()=>{
         if (films.length===0) {
             handleTenHightRatingFilmsAdd()
         }
     },[]);
+    useEffect(()=>{dispatch(featchHightRaitingFilms('1') as any)},[]);
     
     const handleTenHightRatingFilmsAdd =()=>{
-        const result = films.length+10
+        const result = films.length+1
         dispatch(featchHightRaitingFilms(result.toString()) as any)        
     }
 
@@ -24,7 +25,7 @@ const TrendsContent =()=>{
         <>
         <div className={styleMainContent.MainContentLayout}>
             {/* кинопоиск */}
-            {films ? films.length && films.map((item)=><FilmCard 
+            {(films || []).map((item)=><FilmCard 
             id={item.id}
             rating={item.rating.imdb} 
             poster={item.poster.url} 
@@ -33,7 +34,7 @@ const TrendsContent =()=>{
             description={item.description} 
             genres={item.genres.map(item=>item.name +' ')}
             key={item.id}
-            />):null}
+            />)}
         </div>
          <button onClick={()=>{handleTenHightRatingFilmsAdd()}} className={styleMainContent.showMore}>Show more</button>
          </>
