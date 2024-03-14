@@ -18,6 +18,7 @@
   font-size: 25px;
   cursor: pointer;
   max-width: 10px;
+  z-index: 133;
 }
 
 .favorite{
@@ -44,6 +45,12 @@
 
 #lightSiteTheme h3{
   color: black;
+}
+#lightSiteTheme a{
+  color: black;
+}
+.active{
+  color: rgb(100, 55, 224);
 }
 
 @media  (max-width: 1200px) {

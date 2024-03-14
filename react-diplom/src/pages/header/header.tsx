@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AboutUser from "../../components/aboutUser/aboutUser"
 import Input from "../../components/input/input"
 import headerStyle  from "./header.module.css";
@@ -21,15 +21,14 @@ const handleKeyPress = (event:any) => {
   }
 };
 
-
-  const navigate = useNavigate() 
-
     return(
     <div className={headerStyle.headerWrap}>
-          <div className={headerStyle.search} onClick={()=>{navigate('/SearchResultContent')}}>
-            <Input onKeyDown={handleKeyPress} value={searchValue} onChange={setSearchValue} placeHolder={'search'}/>
-          </div>
-          <AboutUser userName={StorageuserName}/>
+      <div className={headerStyle.search}>
+        <Link to='SearcFilms'>
+          <Input onKeyDown={handleKeyPress} value={searchValue} onChange={setSearchValue} placeHolder={'search'}/>
+        </Link>
+      </div>
+      <AboutUser userName={StorageuserName}/>
     </div>
     
     )

@@ -18,7 +18,7 @@ const FavoriteCards = (props:any)=>{
     }
     return(
             <>{card&&
-                <div onClick={()=>{navigate('/ActiveFilmCard');handleShowActiveCard()}} className={styleFilmCard.filmCardWrap} key={props.id}>
+                <div onClick={()=>{navigate(`/ActiveFilmCard/${props.id}`);handleShowActiveCard()}} className={styleFilmCard.filmCardWrap} key={props.id}>
                     <div className={styleFilmCard.filmCardWrapImg}>
                         <span className={styleFilmCard.filmCardVote}>{props.rating}</span>
                         <img className={styleFilmCard.filmCardPoster}src={props.poster} alt="" />

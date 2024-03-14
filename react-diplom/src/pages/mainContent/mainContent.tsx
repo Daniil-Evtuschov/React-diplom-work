@@ -7,7 +7,7 @@ import { InitialStateInt} from "../../interfases";
 
 const MainContent =()=>{
     const dispatch = useDispatch();
-    const films = useSelector((state:InitialStateInt)=>state.filmsCard);    
+    const films = useSelector((state:InitialStateInt)=>state.filmsCard);   
 
     useEffect(()=>{
         if (films.length===0) {
@@ -16,7 +16,7 @@ const MainContent =()=>{
     },[]);
     
     const handleTenFilmsAdd =()=>{
-        let result = films.length+10
+        let result = films.length+1
         localStorage.setItem('massLenght',result.toString())
         if (result!=undefined) {
            
@@ -29,7 +29,7 @@ const MainContent =()=>{
         <>
         <div className={styleMainContent.MainContentLayout}>
             {/* кинопоиск */}
-            {films ? films.length && films.map((item)=><FilmCard 
+            {(films || []).map((item)=><FilmCard 
             id={item.id}
             rating={item.rating.imdb} 
             poster={item.poster.url} 
@@ -38,7 +38,7 @@ const MainContent =()=>{
             description={item.description} 
             genres={item.genres.map(item=>item.name +' ')}
             key={item.id}
-            />):null}
+            />)}
         </div>
          <button onClick={()=>{handleTenFilmsAdd()}} className={styleMainContent.showMore}>Show more</button>
          </>
