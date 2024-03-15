@@ -1,8 +1,6 @@
-import { useDispatch, useSelector } from "react-redux";
 import  styleMainContent  from "../mainContent/mainContent.module.css";
 import { useEffect, useState } from "react";
-import { featchFilmsCards } from "../../store/actions/fetchReducer";
-import { InitialStateInt, filmCardProps, filmsCardsInt } from "../../interfases";
+import { filmCardProps } from "../../interfases";
 import FavoriteCards from "../../components/favoriteCards/favoriteCards";
 
 const FavoritFilmsContent =()=>{
@@ -20,7 +18,8 @@ const FavoritFilmsContent =()=>{
     return(
         <>
         <div className={styleMainContent.MainContentLayout}>
-            {(films || []).map((item)=><FavoriteCards id={item.id} 
+            {(films || []).map((item:filmCardProps)=>
+            <FavoriteCards id={item.id} 
             rating={item.rating} 
             poster={item.poster} 
             filmName={item.filmName} 

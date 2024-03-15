@@ -3,7 +3,7 @@ import FilmCard from "../../components/filmCard/filmCard"
 import  styleMainContent  from "./mainContent.module.css";
 import { featchFilmsCards } from "../../store/actions/fetchReducer";
 import { useEffect } from "react";
-import { InitialStateInt} from "../../interfases";
+import { InitialStateInt, filmsCardsInt} from "../../interfases";
 
 const MainContent =()=>{
     const dispatch = useDispatch();
@@ -14,22 +14,23 @@ const MainContent =()=>{
             handleTenFilmsAdd()
         }
     },[]);
+
+    useEffect(()=>{dispatch(featchFilmsCards('10') as any)},[]);
     
     const handleTenFilmsAdd =()=>{
-        let result = films.length+1
+        let result = films.length+10
         localStorage.setItem('massLenght',result.toString())
         if (result!=undefined) {
            
         dispatch(featchFilmsCards(result.toString()) as any)
             
         }else{}
-        console.log('я заноза',result)
     }
     return(
         <>
         <div className={styleMainContent.MainContentLayout}>
             {/* кинопоиск */}
-            {(films || []).map((item)=><FilmCard 
+            {(films || []).map((item:filmsCardsInt)=><FilmCard 
             id={item.id}
             rating={item.rating.imdb} 
             poster={item.poster.url} 

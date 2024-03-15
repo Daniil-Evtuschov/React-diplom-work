@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import logOutActive from "./logOutActive";
 
 const AboutUser = (props:aboutUserProps)=>{
-    const [userPane,setUserPoanel]=useState(false)
+    const [userPane,setUserPoanel]=useState(false);
  
     function firstLiters(user:string) {
         return user
@@ -14,10 +14,8 @@ const AboutUser = (props:aboutUserProps)=>{
           .join('');
       }
 
-    const navigate = useNavigate()
-
-
-
+    const navigate = useNavigate();
+    
     return(
     <>
         <div className={user.userConteiner}>

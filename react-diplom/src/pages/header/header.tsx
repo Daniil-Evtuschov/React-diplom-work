@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import AboutUser from "../../components/aboutUser/aboutUser"
 import Input from "../../components/input/input"
 import headerStyle  from "./header.module.css";
@@ -10,11 +10,11 @@ const Header = ()=>{
   const dispatch = useDispatch()
   const [searchValue , setSearchValue] = useState('');
   let StorageuserName:string|null = localStorage.getItem('userName');
-  if (StorageuserName==null) {
-    StorageuserName='NotFound' 
+  if (StorageuserName==null||undefined) {
+    StorageuserName='Guest' 
 }
 
-const handleKeyPress = (event:any) => {
+const handleKeyPress = (event:KeyboardEvent ) => {
   if (event.key === 'Enter') {
     //@ts-ignore
     dispatch(searchPosts(searchValue))  
