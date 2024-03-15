@@ -1,10 +1,9 @@
 import { useState } from "react";
 import Input from "../../components/input/input";
 import styleSignUp from "../signUp/signUp.module.css";
-import { handleAuthCklic, handleRefreshClik} from "./signInFunctions";
+import { handleAuthCklic} from "./signInFunctions";
 
 const SignInPanel = ()=> {
-    const [inputvalue , setInputvalue] = useState('');
     const [password , setPassword] = useState('');
     const [email , setEmail] = useState('');
     return(
@@ -20,19 +19,9 @@ const SignInPanel = ()=> {
                     <Input value={email} onChange={setEmail} placeHolder={"enter you email"}/>            
                 </div>
 
+                <span className={styleSignUp.spanLine}></span>
+
                 <button onClick={()=>{handleAuthCklic(email,password)}} className={styleSignUp.formButton}>activation</button>
-            
-         <span className={styleSignUp.spanLine}></span>
-
-
-            <div>
-                <div className={styleSignUp.inputWrap}>
-                    <label className={styleSignUp.inputLabel}>Refresh Token</label>
-                    <Input value={inputvalue} onChange={setInputvalue} placeHolder={"You Refresh Token"}/>            
-                </div>
-
-                <button onClick={()=>{handleRefreshClik(inputvalue)}} className={styleSignUp.formButton}>activation</button>
-            </div>
         </div>
     )
 }

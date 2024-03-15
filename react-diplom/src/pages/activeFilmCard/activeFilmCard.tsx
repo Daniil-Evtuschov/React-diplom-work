@@ -1,6 +1,5 @@
-import {InitialStateInt} from "../../interfases";
+import {InitialStateInt, filmsCardsInt} from "../../interfases";
 import {useDispatch, useSelector } from "react-redux";
-import searchResultContent from "../searchresultContent/searchresultContent.module.css";
 import SearchResult from "../../components/searchResult/searchResult";
 import { useEffect } from "react";
 import { searchFilmId } from "../../store/actions/fetchReducer";
@@ -14,16 +13,16 @@ const ActiveFilmCard = ()=>{
     useEffect(()=>{dispatch(searchFilmId(id))},[])
 
     return(
-        <div className={searchResultContent.MainContentLayout}>
+        <div>
         {/* кинопоиск */}
-        {(films || []).map((item)=><SearchResult 
+        {(films || []).map((item:filmsCardsInt)=><SearchResult 
         id={item.id}
         rating={item.rating.imdb} 
         poster={item.poster ? item.poster.url:''} 
         filmName={item.name} 
         year={item.year} 
         description={item.description} 
-        genres={item.genres.map(item=>item.name +' ')}
+        genres={item.genres.map((item: { name: string; })=>item.name +' ')}
         key={item.id}/>)}
     </div>
 

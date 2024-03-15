@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
-import  searchResultContent  from "./searchresultContent.module.css";
-import { InitialStateInt, filmsCardsInt, filmsCardsProps } from "../../interfases";
+import { InitialStateInt, filmsCardsInt } from "../../interfases";
 import SearchResult from "../../components/searchResult/searchResult";
 
 const SearchResultContent =()=>{
@@ -8,7 +7,7 @@ const SearchResultContent =()=>{
 
     return(
         <>
-        <div className={searchResultContent.MainContentLayout}>
+        <div>
             {/* кинопоиск */}
             {(films || []).map((item:filmsCardsInt)=><SearchResult 
             id={item.id}
@@ -17,7 +16,7 @@ const SearchResultContent =()=>{
             filmName={item.name} 
             year={item.year} 
             description={item.description} 
-            genres={item.genres.map(item=>item.name +' ')}
+            genres={item.genres.map((item:any)=>item.name +' ')}
             key={item.id}/>)}
         </div>
          </>
@@ -25,5 +24,3 @@ const SearchResultContent =()=>{
 }
 
 export default SearchResultContent
-
-//previewUrl

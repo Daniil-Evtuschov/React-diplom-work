@@ -1,7 +1,7 @@
 export const handleAuthCklic = async (inputEmailValue:string,inputPasswordValue:string)=>{ 
 
-  fetch("https://studapi.teachmeskills.by/auth/jwt/create/",{
-    headers:{
+  const response = await fetch("https://studapi.teachmeskills.by/auth/jwt/create/", {
+    headers: {
       "Content-Type": "application/json",
     },
     method: "POST",
@@ -9,22 +9,33 @@ export const handleAuthCklic = async (inputEmailValue:string,inputPasswordValue:
       email: inputEmailValue,
       password: inputPasswordValue,
     })
-  })
-  .then((response)=>response.json())
-  .then((response)=>{localStorage.setItem('secretAccess',response.access);localStorage.setItem('refreshToken',response.refresh)})      
-}
-
-export const handleRefreshClik= async (refreshAccess:string)=>{ 
-
-  const response = await fetch(`https://studapi.teachmeskills.by/auth/users/me/`,{
-    headers:{
-      "Authorization": `Bearer ${refreshAccess}`
-    }
-  })
+  });
   const data = await response.json();
-  localStorage.setItem('userName',data.username)
-  localStorage.setItem('UserId',data.id)
-  return data.results;
   
+  const AccessResponse = await fetch(`https://studapi.teachmeskills.by/auth/users/me/`, {
+    headers: {
+      "Authorization": `Bearer ${data.access}`
+    }
+  });
+  const AccessData = await AccessResponse.json();
   
+  localStorage.setItem('userName', AccessData.username); 
+  localStorage.setItem('UserId', AccessData.id);
+
+  let upLoadPage =()=>{window.location.reload()};
+
+  upLoadPage();
+
+  if (inputPasswordValue.length==0) {
+    upLoadPage=()=>{};
+    alert('enter you Password');
+
+  };
+
+  if (inputEmailValue.length==0) {
+    upLoadPage=()=>{};
+    alert('enter you Email');
+  };
+  
+  return (data.results, data.refresh, AccessData);     
 }

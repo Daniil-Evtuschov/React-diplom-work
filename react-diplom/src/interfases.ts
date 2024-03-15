@@ -13,8 +13,8 @@ export interface filmsCardsProps{
     year?:string;
 }
 
-//интерфейс для кинопоиска
-export interface filmsCardsInt{ 
+export interface filmsCardsInt{
+    filmName: any; 
     ageRating: number;
     alternativeName: string;
     backdrop: {

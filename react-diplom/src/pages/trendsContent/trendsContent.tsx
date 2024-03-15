@@ -14,10 +14,10 @@ const TrendsContent =()=>{
             handleTenHightRatingFilmsAdd()
         }
     },[]);
-    useEffect(()=>{dispatch(featchHightRaitingFilms('1') as any)},[]);
+    useEffect(()=>{dispatch(featchHightRaitingFilms('10') as any)},[]);
     
     const handleTenHightRatingFilmsAdd =()=>{
-        const result = films.length+1
+        const result = films.length+10
         dispatch(featchHightRaitingFilms(result.toString()) as any)        
     }
 
