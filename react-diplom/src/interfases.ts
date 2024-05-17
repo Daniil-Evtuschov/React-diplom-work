@@ -42,8 +42,8 @@ export interface filmsCardsInt{
       type?: string | null;
     }[];
     poster: {
-      previewUrl: string;
-      url: string;
+      previewUrl: any;
+      url: any;
     };
     rating: {
       await: number | null;

@@ -28,11 +28,11 @@ const TrendsContent =()=>{
             {(films || []).map((item)=><FilmCard 
             id={item.id}
             rating={item.rating.imdb} 
-            poster={item.poster.url} 
+            poster={item.poster ? item.poster.url : undefined} 
             filmName={item.name} 
             year={item.year} 
             description={item.description} 
-            genres={item.genres.map(item=>item.name +' ')}
+            genres={item.genres?.map(genre => genre.name + ' ') || []}
             key={item.id}
             />)}
         </div>

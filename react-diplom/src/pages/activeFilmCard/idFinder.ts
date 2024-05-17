@@ -1,7 +1,7 @@
 const filmIdFinder= async (searchFilmId:string)=>{
     const options = {
         method: 'GET',
-        headers: {accept: 'application/json', 'X-API-KEY': '4HWWDX9-66EMDB2-JSFQVHE-R0WBRZ2'}
+        headers: {accept: 'application/json', 'X-API-KEY': 'HESPSEB-5ZYMM9K-KQMNMW4-404DBWK'}
       };
     const response = await fetch(`https://api.kinopoisk.dev/v1.4/movie/${searchFilmId}`,options);
     const data = await response.json();
